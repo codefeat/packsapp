@@ -28,3 +28,7 @@ gem 'carrierwave'
 gem "fog"
 gem 'figaro'
 gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+gem 'cancan'
+gem 'draper'
+gem 'pundit'
