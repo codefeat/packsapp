@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shopper:</strong>
+  <%= @pickup.shopper_id %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @pickup.driver_id %>
+</p>
+
+<p>
+  <strong>Prod size:</strong>
+  <%= @pickup.prod_size %>
+</p>
+
+<p>
+  <strong>User num:</strong>
+  <%= @pickup.user_num %>
+</p>
+
+<%= link_to 'Edit', edit_pickup_path(@pickup) %> |
+<%= link_to 'Back', pickups_path %>

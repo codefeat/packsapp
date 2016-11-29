@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pickups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shopper</th>
+      <th>Driver</th>
+      <th>Prod size</th>
+      <th>User num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pickups.each do |pickup| %>
+      <tr>
+        <td><%= pickup.shopper_id %></td>
+        <td><%= pickup.driver_id %></td>
+        <td><%= pickup.prod_size %></td>
+        <td><%= pickup.user_num %></td>
+        <td><%= link_to 'Show', pickup %></td>
+        <td><%= link_to 'Edit', edit_pickup_path(pickup) %></td>
+        <td><%= link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pickup', new_pickup_path %>

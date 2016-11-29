@@ -45,3 +45,33 @@
 .jumbotron {
 background-image: url("https://s3.amazonaws.com/nextpakk/Delivery-man-makes-his-rounds.jpg");
 background-size: cover;}
+
+
+@media(max-width:767px){
+	.jumbotron{
+	display:none;
+	}
+	.container-fluid{
+	background: #f9ab23;
+	color: white !important;
+	}
+
+	.custom-ftr{
+	display:none;
+	}
+	.custom-ftr-mobile{
+		display:block !important;
+	}
+	.mobile-para{
+		color:whitesmoke !important;
+	}
+	.cust-mob-body-text{
+		text-align: center !important;
+	}
+	.cust-head-subhead-text{
+	color: white !important;
+	}
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}

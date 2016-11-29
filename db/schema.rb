@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129024432) do
+ActiveRecord::Schema.define(version: 20161129194515) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20161129024432) do
     t.string   "image"
   end
 
+  create_table "pickups", force: :cascade do |t|
+    t.integer  "shopper_id"
+    t.integer  "driver_id"
+    t.string   "prod_size"
+    t.string   "user_num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "prod_name"
     t.string   "description"
@@ -74,22 +83,33 @@ ActiveRecord::Schema.define(version: 20161129024432) do
     t.integer  "delivery_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "role_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "",                    null: false
+    t.string   "encrypted_password",     default: "",                    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,                     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.boolean  "admin",                  default: false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "image",                  default: "default-profile.png"
+    t.boolean  "shopper",                default: true
+    t.boolean  "driver",                 default: false
+    t.integer  "role_id",                default: 2
+    t.string   "packs_num"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
