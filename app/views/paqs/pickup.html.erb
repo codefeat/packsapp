@@ -1,14 +1,22 @@
 
-<ul class="nav nav-tabs">
-  <li role="presentation" ><%= link_to "Deliver", root_path %></li>
-  
-  <li role="presentation" class="active"><%= link_to "Pick-up", paqs_pickup_path %></li>
-</ul>
-<div class="mobile-body"><br />
-<h1>Pickup</h1>
-<h4 class="mobile-para">Shedule pick-up of your ready-to-ship package(s). </h4><br />
+<div class="step1">
+      <div class="pull-right" id="imgZ" style="width:75px; min-height:75px;">
+      <%= image_tag current_user.image, class: "img-responsive img-circle" %>
+      </div>
+      <div class="pull-left">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to "Deliver", root_path %></li>
+        <li role="presentation" class="active"><%= link_to "Pick-up", paqs_pickup_path %></li>
+      </ul>
+      </div><br /><br /><br />
+      <div class="cust-mob-body-text">
+      <br /><br /><h2>Pickup</h2><br />
+      <p class="mobile-para">Shedule pick-up of your ready-to-ship package(s). </p>
+      </div>
 
-<h4>What is the size of your package?</h4>
+<div class="mobile-body">
+
+<h4 class="mobile-para">What is the size of your package?</h4>
 </div>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
