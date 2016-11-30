@@ -110,6 +110,14 @@ a,a:link, a:visited {
     .container-fluid {
     padding: 0px 20px !important;
     }
+
+    body {
+    	background: #f9ab23 !important;
+    }
+
+    .step1 {
+    	min-height: 413px !important;
+    }
 }
 @media(min-width:768px){}
 @media(min-width:992px){}
