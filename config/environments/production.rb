@@ -79,6 +79,4 @@ Rails.application.configure do
 
   # Required for Devise. Rember to change localhost:300 to actual application host.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.serve_static_assets = true
 end
