@@ -99,6 +99,17 @@ a,a:link, a:visited {
 	.cust-head-subhead-text{
 	color: white !important;
 	}
+
+	table {
+        width:95%;
+    }
+    form input[type=text], form input[type=password], form input[type=email], form input[type=number], form input[type=url], form input[type=tel], form input[type=date], form textarea {
+        width:100% !important;
+    }
+
+    .container-fluid {
+    padding: 0px 10px !important;
+    }
 }
 @media(min-width:768px){}
 @media(min-width:992px){}
