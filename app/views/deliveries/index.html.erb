@@ -8,17 +8,34 @@
 </div>
 
 <div class="step1">
-  <div class="mobile-body">
-    <h1>NextPakk</h1>
-    <h4>The Smart, Secure, Convenient way for package delivery! "We've Got Your Pack"
-    </h4><br />
-  </div>
-  
+  <% if user_signed_in? %>
+      <div class="pull-right" id="imgZ" style="width:75px; min-height:75px;">
+      <%= image_tag current_user.image, class: "img-responsive img-circle" %>
+      </div>
+      <div class="pull-left">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Deliver</a></li>
+        <li role="presentation"><%= link_to "Pick-up", paqs_pickup_path %></li>
+      </ul>
+      </div><br /><br /><br />
+      <div class="cust-mob-body-text">
+      <h2>NextPakk Que</h2>
+      <p class="mobile-para">Online purchases sent to your NextPakk
+      address will show up here when they're ready
+      to be delivered.</p>
+      </div>
+  <% else %>
+      <div class="mobile-body">
+        <h1>NextPakk</h1>
+        <h4>The Smart, Secure, Convenient way for package delivery! "We've Got Your Pack"
+        </h4><br />
+      </div>
       <%= link_to "login", new_user_session_path, class: "btn btn-info" %>
       <%= link_to "sign up", new_user_registration_path, class: "btn btn-info " %>
+  <% end %>
     
 </div><br />
-
+      <% if user_signed_in? && current_user.admin? %>
 <table class="table table-hover table-condensed">
   <thead>
     <tr>
@@ -26,9 +43,7 @@
       <th>Address</th>
       <th>Phone</th>
       <th>Size</th>
-      <% if user_signed_in? && current_user.admin? %>
         <th colspan="2"></th>
-      <% end %>
     </tr>
   </thead>
 
@@ -39,7 +54,6 @@
         <td><%= link_to delivery.address, "http://maps.google.com/?q=#{delivery.address}" %></td>
         <td><%= delivery.phone %></td>
         <td><%= link_to delivery.size, delivery.size %></td> 
-        <% if user_signed_in? && current_user.admin? %>       
           <td><%= link_to 'Edit', edit_delivery_path(delivery), class: "btn btn-link" %></td>
           <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
         <% end %>
