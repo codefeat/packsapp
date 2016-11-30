@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
   
+  get 'paqs/deliver'
+
+  get 'paqs/pickup'
+
+  get 'paqs/step1'
+
+  get 'paqs/step2'
+
+  get 'paqs/step3'
+
+  get 'paqs/step4'
+
+  get 'paqs/step5'
+
+  get 'paqs/step6'
+
+  get 'paqs/step7'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users

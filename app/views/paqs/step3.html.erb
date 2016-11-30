@@ -1,0 +1,31 @@
+<h2>Shipping Address</h2>
+<span class="glyphicon glyphicon-shopping-cart
+glyphicon glyphicon-cart"></span> <span style="font-size: 14px !important;">When ordering online use</span><br /><br />
+<label for="exampleInputPassword1">Fullname</label>
+<div class="well well-sm" style="color: #333333;">
+<%= current_user.first_name %> <%= current_user.last_name %></div>
+
+<label for="exampleInputPassword1">Address Line1</label>
+<div class="well well-sm" style="color: #333333;">
+NextPakk
+</div>
+
+<label for="exampleInputPassword1">Address Line2</label>
+<div class="well well-sm" style="color: #333333;">
+3601 25th Ave S. #<%= current_user.packs_num %></div>
+
+<label for="exampleInputPassword1">City</label>
+<div class="well well-sm" style="color: #333333;">
+Minneapolis
+</div>
+
+<label for="exampleInputPassword1">State</label>
+<div class="well well-sm" style="color: #333333;">
+Minnesota
+</div>
+
+<label for="exampleInputPassword1">Zip</label>
+<div class="well well-sm" style="color: #333333;">
+55406</div>
+<br /> 
+<%= link_to "next", paqs_step4_path, class: "btn btn-info pull-right" %><br />

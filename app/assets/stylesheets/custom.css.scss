@@ -46,6 +46,17 @@
 background-image: url("https://s3.amazonaws.com/nextpakk/Delivery-man-makes-his-rounds.jpg");
 background-size: cover;}
 
+.nav-tabs>li>a {
+	text-decoration: none !important;
+}
+
+.navbar-default .container-fluid .navbar-brand {
+	text-decoration: none !important;
+}
+
+.navbar-nav > li > a  {
+	text-decoration: none !important;
+}
 
 @media(max-width:767px){
 	.jumbotron{
@@ -55,6 +66,19 @@ background-size: cover;}
 	background: #f9ab23;
 	color: white !important;
 	}
+
+	.mobile-body{
+	color:white !important;
+	}
+
+	.mobile-body a{
+	text-decoration: none !important;
+	}
+
+	.mobile-body h1, h2, h3, h4{
+	color:white !important;
+	}
+
 
 	.custom-ftr{
 	display:none;
