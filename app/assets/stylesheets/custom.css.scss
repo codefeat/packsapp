@@ -6,7 +6,9 @@
     body {
         margin-top: 50px;
     }
-    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+    /* html, body, #wrapper, #page-wrapper {
+    height: 100%; overflow: hidden;
+    }  */
 }
 
 #wrapper {
@@ -187,19 +189,19 @@
 
 .navbar-default {
 	.container-fluid {	
-	background-color: #ffffff;
-	.navbar-nav > li > a{
-	color:#000000;
-	font-size: 16px;
-	font-weight: bold;
-	}
-	.navbar-brand {
-	color:#f9ab23;
-	font-size: 30px;
-	font-weight: bold;
-	font-family: 'Days One', sans-serif;
-	text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
-	}
+		background-color: #ffffff;
+			.navbar-nav > li > a {
+			color:#000000;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.navbar-brand {
+		color:#f9ab23;
+		font-size: 30px;
+		font-weight: bold;
+		font-family: 'Days One', sans-serif;
+		text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
+		}
 	}
 }
 
@@ -269,7 +271,7 @@ a, a:link, a:visited {
 	display:none;
 	}
 
-	/* gold #f9ab23*/
+	
 	.container-fluid{
 	background: whitesmoke;
 	color: black !important;
