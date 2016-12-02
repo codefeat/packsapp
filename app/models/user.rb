@@ -7,12 +7,17 @@ class User < ActiveRecord::Base
          has_many :reviews, dependent:  :destroy
          has_many :roles
          has_many :deliveries
+         has_many :orders
 
          validates :first_name, :last_name, presence: true
 
          # User Avatar Validation
   validates_integrity_of  :image
   validates_processing_of :image
+
+   def display_name
+    	return self.email
+    end
  
   private
     def avatar_size_validation
@@ -20,4 +25,6 @@ class User < ActiveRecord::Base
     end
 
          validates :first_name, :last_name, presence: true
+
+   
 end

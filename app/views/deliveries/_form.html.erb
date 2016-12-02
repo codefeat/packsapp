@@ -13,7 +13,8 @@
       </ul>
     </div>
   <% end %>
-
+<% userId = current_user.id %>
+<% userPacknum = current_user.packs_num %>
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control", placeholder: "Panara Bread" %>
@@ -29,6 +30,8 @@
   <div class="form-group">
     <%= f.label :size %><br>
     <%= f.text_field :size, class: "form-control", placeholder: "Large" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_packnum, value: current_user.packs_num %>
   </div>
   <div class="form-group">
     <%= f.label :image %><br>
@@ -37,4 +40,5 @@
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
+  <%= current_user.id %> <%= current_user.packs_num %>
 <% end %>

@@ -1,2 +1,195 @@
-<h1>Paqs#step7</h1>
-<p>Find me in app/views/paqs/step7.html.erb</p>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="https://s3.amazonaws.com/nextpakkweb/np-logo-text.png" alt="LOGO"">
+            </a>
+             
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                </a>
+            </li>            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                 <% if user_signed_in? %>
+
+                 <li><%= link_to edit_user_registration_path do %>
+                        <span class="fa fa-fw fa-user"></span> Edit Profile
+                    <% end %></li> 
+                      
+                    <li><%= link_to edit_user_registration_path do %>
+                        <span class="fa fa-fw fa-cog"></span> Change Password
+                    <% end %></li>   
+                  
+              <% else %>
+                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <li><%= link_to "Sign In", new_user_session_path %></li>
+               <% end %>   
+                    <li class="divider"></li>
+                    <li><%= link_to destroy_user_session_path, method: :delete do %>
+                        <span class="fa fa-fw fa-power-off"></span> Sign Out
+                    <% end %></li> 
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-truck"></i> DELIVERY <!--i class="fa fa-fw fa-angle-down pull-right" --></i></a>
+                    <!--ul id="submenu-1" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.1</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.2</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.3</a></li>
+                    </ul-->
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="glyphicon glyphicon-thumbs-up"></i>  PICKUP <!--i class="fa fa-fw fa-angle-down pull-right"--></i></a>
+                    <!--ul id="submenu-2" class="collapse" >
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
+                    </ul-->
+                </li>
+                <li>
+                    <a href="investigaciones/favoritas"><i class="fa fa-fw fa-shopping-cart"></i>  ORDERS</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <h1>Welcome <%= current_user.first_name %>!</h1>
+                </div>
+
+                <div class="row">
+                    <div class="profile-header-container">   
+                        <div class="profile-header-img">
+                        <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
+                            <div class="rank-label-container">
+                                <span class="label label-default rank-label"><%= current_user.first_name %></span>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="step1">
+                         
+                          <div class="pull-left">
+                          <ul class="nav nav-tabs">
+                            <li role="presentation"><%= link_to "Deliver", root_path %></li>
+                            <li role="presentation" class="active"><%= link_to "Pick-up", paqs_pickup_path %></li>
+                          </ul>
+                          </div><br /><br /><br />
+                          <div class="cust-mob-body-text">
+                          <br /><br /><h2>Pickup</h2><br />
+                          <p class="mobile-para">Shedule pick-up of your ready-to-ship package(s). </p>
+                          </div>
+
+                    <div class="mobile-body">
+
+                    <h4 class="mobile-para">What is the size of your package?</h4>
+                    </div>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                              Small
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+
+                          <div id="imgZ" style="width:120px; min-height:120px; padding-bottom:10px; float: left;">
+                            <%= image_tag "https://s3.amazonaws.com/nextpakkweb/sm-pack-item-sizes.jpg", class: "img-responsive" %>
+                            </div>
+                            <span class="pull-right"><a href="#">$3.99</a></span><br /><br />
+                            <span style="color:black !important;">The package can be carried in one hand.</span><br />
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Medium
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                          <div id="imgZ" style="width:120px; min-height:120px; padding-bottom:10px; float: left;">
+                            <%= image_tag "https://s3.amazonaws.com/nextpakkweb/md-pack-item-sizes.jpg", class: "img-responsive" %>
+                            </div>
+                            <span class="pull-right"><a href="#">$3.99</a></span><br /><br />
+                            <span style="color:black !important;">Boxes within the laptop to shoebox range.</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Large
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div class="panel-body">
+                          <div id="imgZ" style="width:120px; min-height:120px; padding-bottom:10px; float: left;">
+                            <%= image_tag "https://s3.amazonaws.com/nextpakkweb/lrg-pack-item-sizes.jpg", class: "img-responsive" %>
+                            </div>
+                            <span class="pull-right"><a href="#">$3.99</a></span><br /><br />
+                            <span style="color:black !important; text-align: left !important;">You usually can't carry anything else with it.</span>
+                          </div>
+                        </div>
+                      </div>
+                       <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              X-Large
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                          <div class="panel-body">
+                          <div id="imgZ" style="width:120px; min-height:120px; padding-bottom:10px; float: left;">
+                            <%= image_tag "https://s3.amazonaws.com/nextpakkweb/os-pack-item-sizes.jpg", class: "img-responsive" %>
+                            </div>
+                            <span class="pull-right"><a href="#">$7.99</a></span><br /><br />
+                            <span style="color:black !important; text-align: left !important;">Packages requiring two person delivery teams or additional storage may incur additional cost..</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->

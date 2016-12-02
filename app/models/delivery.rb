@@ -1,6 +1,7 @@
 class Delivery < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 	has_many :reviews
+	belongs_to :user
 
 	validates :name, :address, :phone, :size, :image, presence: true
 	validates :phone, format: { with: /\A\(\d{3}\) \d{3}-\d{4}\z/,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129194515) do
+ActiveRecord::Schema.define(version: 20161201193318) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,9 +51,30 @@ ActiveRecord::Schema.define(version: 20161129194515) do
     t.string   "address"
     t.string   "phone"
     t.string   "size"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "image"
+    t.integer  "user_id"
+    t.string   "user_packnum"
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "image"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "order_packnum"
+    t.string   "order_size"
+    t.text     "order_description"
+    t.integer  "order_qty"
+    t.decimal  "order_cost"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "product_id"
+    t.integer  "order_status_id",   default: 1
   end
 
   create_table "pickups", force: :cascade do |t|
@@ -87,6 +108,12 @@ ActiveRecord::Schema.define(version: 20161129194515) do
     t.string   "role_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name",       default: "f"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|

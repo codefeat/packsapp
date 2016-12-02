@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_userid: 1
+  order_packnum: MyString
+  order_size: MyString
+  order_qty: 
+  order_cost: 9.99
+
+two:
+  order_userid: 1
+  order_packnum: MyString
+  order_size: MyString
+  order_qty: 
+  order_cost: 9.99

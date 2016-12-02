@@ -1,0 +1,49 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :order_packnum %><br>
+    <%= f.text_field :order_packnum %>
+  </div>
+  <div class="field">
+    <%= f.label :order_size %><br>
+    <%= f.text_field :order_size %>
+  </div>
+  <div class="field">
+    <%= f.label :order_description %><br>
+    <%= f.text_area :order_description %>
+  </div>
+  <div class="field">
+    <%= f.label :order_qty %><br>
+    <%= f.number_field :order_qty %>
+  </div>
+  <div class="field">
+    <%= f.label :order_cost %><br>
+    <%= f.text_field :order_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :order_status_id %><br>
+    <%= f.number_field :order_status_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

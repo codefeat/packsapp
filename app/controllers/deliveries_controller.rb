@@ -2,6 +2,7 @@ class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
+  
   # GET /deliveries
   # GET /deliveries.json
   def index
@@ -28,12 +29,15 @@ class DeliveriesController < ApplicationController
   def edit
   end
 
+
   # POST /deliveries
   # POST /deliveries.json
   def create
     @delivery = Delivery.new(delivery_params)
 
     respond_to do |format|
+      @delivery.user_id = current_user.id
+      @delivery.user_packnum = current_user.packs_num
       if @delivery.save
         format.html { redirect_to @delivery, notice: 'delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
