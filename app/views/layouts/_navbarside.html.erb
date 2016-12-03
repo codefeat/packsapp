@@ -2,24 +2,20 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li><%= link_to root_path do %>
-                  <span class="fa fa-fw fa-truck""></span> Delivey
+                  <span class="fa fa-fw fa-truck""></span> Delivery
                   <% end %></li>
                     
-                    <!--ul id="submenu-1" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.1</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.2</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.3</a></li>
-                    </ul-->
+                   
                 </li>
                 <li><%= link_to paqs_pickup_path do %>
                   <span class="glyphicon glyphicon-thumbs-up"></span> Pickup
                   <% end %></li>
-                    <!--i class="fa fa-fw fa-angle-down pull-right"--></i></a>
-                    <!--ul id="submenu-2" class="collapse" >
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
-                    </ul-->
+                    
+                </li>
+                <li>
+                    <li><%= link_to paqs_address_path do %>
+                  <span class="glyphicon glyphicon-map-marker"></span> Address
+                  <% end %>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-shopping-cart"></i>  ORDERS</a>

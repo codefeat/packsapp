@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'paqs/address'
+
   get 'paqs/deliver'
 
   get 'paqs/pickup'
@@ -27,6 +29,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/contact'
+
+  #get 'orders#index'
 
   root 'deliveries#index'
 

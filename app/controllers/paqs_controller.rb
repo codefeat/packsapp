@@ -1,6 +1,8 @@
 class PaqsController < ApplicationController
   before_action :authenticate_user!, except: [:step1]
-
+  def address
+  end
+  
   def deliver
   end
 

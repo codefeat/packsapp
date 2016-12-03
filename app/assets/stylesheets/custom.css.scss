@@ -225,7 +225,7 @@
 .profile-header-img > img.img-circle {
     width: 120px;
     height: 120px;
-    border: 2px solid #0069ff;
+    border: 4px solid #cccccc;
 }
 
 .profile-header {
@@ -262,6 +262,10 @@ a, a:link, a:visited {
 
 .navbar-default .container-fluid .navbar-brand{
 	color: #f9ab23 !important;
+}
+
+.top-nav > li > a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus {
+	background: #efefef !important;
 }
 
 
