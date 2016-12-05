@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          has_many :roles
          has_many :deliveries
          has_many :orders
+         has_many :appointments
 
          validates :first_name, :last_name, presence: true
 

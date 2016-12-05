@@ -36,11 +36,47 @@
                         <li role="presentation"><%= link_to "FAQs", paqs_pickup_path %></li>
                       </ul>
                       </div><br /><br /><br />
-                      <div class="cust-mob-body-text">
-                      <br /><br /><h2>NextPakk Que</h2><br />
-                      <p class="mobile-para">Online purchases sent to your NextPakk address will show up here when they're ready
-                      to be delivered.</p>
-                      </div>
+                          <br /><h2 style="text-align: center; color:#333333 !important;">New Order Available For Delivery</h2>
+                        <% if Order.exists?(user_id: current_user.id) %>
+                            <% for order in @order %>
+                            <div class="row" style="display: none;">
+                              <div class="col-xs-4">
+                                <a href="#"><h3><%= order.order_packnum %></h3></a>
+                              </div>
+                              <div class="col-xs-4">
+                                <a href="#"><h3><%= order.order_size %></h3></a>
+                              </div>
+                              <div class="col-xs-4">
+                                <a href="#"><h3><%= order.order_description %></h3></a>
+                              </div>
+                            </div>
+                            <table class="table">
+                              <th>NextPack #</th>
+                              <th>Description</th>
+                              <th>Size</th>
+                              <th>Schedule</th>
+                              <tr>
+                              <td><h4><%= order.order_packnum %></h4></td>
+                              <td><h4><%= order.order_description %></h4></td>
+                              <td><h4><%= order.order_size %></h4></td>
+                              <% if Order.exists?(user_id: current_user.id) || current_user.admin? %>
+                                <td>
+                                <%= link_to "Schedule Delivery", new_delivery_path, class: "btn btn-default btn-xs" %>
+                                </td>
+                              </tr>
+                            </table>
+                            <%= @delivery %>
+                              
+                              <% end %>
+                            <% end %>
+                        <% else %>
+                            <h2>No orders available at this time.</h2>
+                            <div class="cust-mob-body-text">
+                             <br /><br /><h2>NextPakk Que</h2><br />
+                            <p class="mobile-para">Online purchases sent to your NextPakk address will show up here when they're ready
+                            to be delivered.</p>
+                            </div>
+                        <% end %>
                   <% else %>
                       <div class="mobile-body">
                         <h1>NextPakk</h1>
@@ -80,9 +116,7 @@
                 </table>
 
                 <br>
-                <% if user_signed_in? && current_user.admin? %>
-                <%= link_to 'New delivery', new_delivery_path, class: "btn btn-link" %>
-                <% end %>
+                
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->

@@ -1,12 +1,17 @@
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  #before_action :set_order
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
   
   # GET /deliveries
   # GET /deliveries.json
   def index
+    @user = current_user
     @deliveries = Delivery.all
+    @orders = Order.all
+    @order = @user.orders.all if @user
+    #@delivery = Delivery.find(params[:order_id])
   end
 
   # GET /deliveries/1
@@ -23,6 +28,9 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
+    @user = current_user
+    @orders = Order.all
+    @order = @user.orders.all if @user
   end
 
   # GET /deliveries/1/edit
@@ -34,6 +42,9 @@ class DeliveriesController < ApplicationController
   # POST /deliveries.json
   def create
     @delivery = Delivery.new(delivery_params)
+    @user = current_user
+    @orders = Order.all
+    @order = @user.orders.all if @user
 
     respond_to do |format|
       @delivery.user_id = current_user.id
@@ -77,14 +88,16 @@ class DeliveriesController < ApplicationController
     def set_delivery
       @delivery = Delivery.find(params[:id])
     end
+
+
     def check_user
-      unless current_user.admin?
-        redirect_to root_url, alert: "Sorry, only admins can do that!"
+      unless current_user.admin? || user_signed_in?
+        redirect_to root_url, alert: "Sorry, only site or account admins can do that!"
       end
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:name, :address, :phone, :size, :image)
+      params.require(:delivery).permit(:name, :address, :phone, :size, :image, :order_id)
     end
 end

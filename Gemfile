@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby '2.2.4'
 gem 'rails', '4.2.5.1'
@@ -33,3 +33,7 @@ gem 'cancan'
 gem 'draper'
 gem 'pundit'
 gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'simple_form'
+gem 'momentjs-rails'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :deliveries do
     resources :reviews, except: [:show, :index]
   end
+
+  resources :charges
   get 'pages/about'
 
   get 'pages/contact'

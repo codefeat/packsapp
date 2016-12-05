@@ -2,6 +2,11 @@ class Delivery < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 	has_many :reviews
 	belongs_to :user
+	has_one :day
+	has_one :slot
+
+	#attr_accessible :day_id, :days_attributes 
+	#accepts_nested_attributes_for :days
 
 	validates :name, :address, :phone, :size, :image, presence: true
 	validates :phone, format: { with: /\A\(\d{3}\) \d{3}-\d{4}\z/,

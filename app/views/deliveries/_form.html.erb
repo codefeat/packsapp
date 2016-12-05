@@ -1,4 +1,4 @@
-<%= form_for(@delivery, :html => { mulitpart: true}) do |f| %>
+<%= simple_form_for(@delivery, :html => { mulitpart: true}) do |f| %>
   <% if @delivery.errors.any? %>
     <div id="error_explanation" class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="true">
@@ -32,13 +32,29 @@
     <%= f.text_field :size, class: "form-control", placeholder: "Large" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :user_packnum, value: current_user.packs_num %>
+    <% if Order.exists?(user_id: current_user.id) %>
+        <% for order in @order %>
+          <% 
+          @myOrder = order.id 
+          %> 
+         
+        <% end %>
+      <% end %>
+      <%= f.hidden_field :order_id, value: @myOrder %>
   </div>
   <div class="form-group">
     <%= f.label :image %><br>
     <%= f.file_field :image, class: "form-control" %>
   </div>
+  
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
-  <%= current_user.id %> <%= current_user.packs_num %>
+      
 <% end %>
+
+
+
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker();
+</script>
