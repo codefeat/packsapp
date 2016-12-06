@@ -14,8 +14,9 @@
             <!-- Page Heading -->
             <div class="row" id="main" >
                     <div class="row">
-                    <h1>Your NextPakk Address</h1>
-                        <div class="profile-header-container" style="margin-top: 10px;">   
+                   
+                        <div class="profile-header-container"
+                        >   
                             <div class="profile-header-img">
                             <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
                                 <div class="rank-label-container">
@@ -25,10 +26,9 @@
                         </div> 
                     </div>
                 <div class="step1">
-                <%= render 'layouts/tabnav' %>
-                      <br /><br /><br />
+                      
                       <div class="cust-mob-body-text">
-                      <br /><br /><h2>Your NextPakk Address</h2><br />
+                      <h2>Your NextPakk Address</h2>
                       <p class="mobile-para" style="text-align: left !important;">
                       <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><br />
                       3601 25th Ave S.<br />
