@@ -17,7 +17,7 @@
             <div class="row" id="main" >
                 
                 <div class="row">
-                    <div class="profile-header-container" style="margin-top: 10px;">   
+                    <div class="profile-header-container">   
                         <div class="profile-header-img">
                         <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
                             <div class="rank-label-container">
@@ -27,10 +27,17 @@
                     </div> 
                 </div>
                 <div class="step1">
-                          <%= render 'layouts/tabnav' %>
-                          <br /><br /><br />
+                <h2>Pickup</h2>
+                          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <div class="btn-group" role="group">
+                              <%= link_to "Delivery", root_path, class: "btn btn-default" %>
+                            </div>
+                            <div class="btn-group" role="group">
+                              <%= link_to "Pick-up", paqs_pickup_path, class: "btn btn-default" %>
+                            </div>
+                          </div>
+                          <br />
                           <div class="cust-mob-body-text">
-                          <br /><br /><h2>Pickup</h2><br />
                           <p class="mobile-para">Shedule pick-up of your ready-to-ship package(s). </p>
                           </div>
 
