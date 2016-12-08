@@ -1,9 +1,18 @@
 class Delivery < ActiveRecord::Base
+
+	#def after_create
+		#Appointment.create!(:slot_id => @delivery[:appt_id])
+	#end
 	mount_uploader :image, ImageUploader
 	has_many :reviews
 	belongs_to :user
-	has_one :day
-	has_one :slot
+	belongs_to :schedule
+	#has_one :day
+	#has_one :slot
+	#has_one :appointment
+
+	#attr_accessible :day_id , :slot_id, :delivery_id, :date
+  	#accepts_nested_attributes_for :appointment
 
 	#attr_accessible :day_id, :days_attributes 
 	#accepts_nested_attributes_for :days

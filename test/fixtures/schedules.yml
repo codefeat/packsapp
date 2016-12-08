@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2016-12-07
+  slot_id: 1
+  delivery_id: 1
+
+two:
+  day: 2016-12-07
+  slot_id: 1
+  delivery_id: 1

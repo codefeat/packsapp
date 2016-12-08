@@ -3,6 +3,7 @@ class DeliveriesController < ApplicationController
   #before_action :set_order
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
+ 
   
   # GET /deliveries
   # GET /deliveries.json
@@ -31,6 +32,9 @@ class DeliveriesController < ApplicationController
     @user = current_user
     @orders = Order.all
     @order = @user.orders.all if @user
+    @slot = Slot.all
+    @appointment = Appointment.all
+    @day = Day.all
   end
 
   # GET /deliveries/1/edit
@@ -45,11 +49,18 @@ class DeliveriesController < ApplicationController
     @user = current_user
     @orders = Order.all
     @order = @user.orders.all if @user
+    @slot = Slot.all
+    @appointment = Appointment.all
+    @day = Day.all
 
     respond_to do |format|
       @delivery.user_id = current_user.id
       @delivery.user_packnum = current_user.packs_num
+      #@slotid = @slot.id
       if @delivery.save
+
+        #Appointment.create!(:delivery_id => @delivery.id, :slot_id => @delivery[:appt_id])
+        Appointment.create!(:slot_id => @delivery[:appt_id])
         format.html { redirect_to @delivery, notice: 'delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
@@ -98,6 +109,6 @@ class DeliveriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:name, :address, :phone, :size, :image, :order_id)
+      params.require(:delivery).permit(:name, :address, :phone, :size, :image, :order_id, :delivery_id, :slot_id)
     end
 end

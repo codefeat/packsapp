@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :schedules
+  get 'appointments/new' 
+
   get 'paqs/address'
 
   get 'paqs/deliver'
@@ -31,6 +34,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/contact'
+
+
 
   #get 'orders#index'
 
