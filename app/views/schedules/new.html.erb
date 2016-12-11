@@ -1,5 +1,37 @@
-<h1>New Schedule</h1>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+     <%= render 'layouts/navbartop' %>
+     <% if user_signed_in? %>
+       <%= render 'layouts/navbarright' %>
+       <%= render 'layouts/navbarside' %>
+     <% end %>
+  </nav>
+<div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                
+                <div class="row">
+                    <div class="profile-header-container">   
+                        <div class="profile-header-img">
+                        <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
+                            <div class="rank-label-container">
+                                <span class="label label-default rank-label"><%= current_user.first_name %></span>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="step1">
+				<h1>New Schedule</h1>
+				<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', schedules_path %>
+				<%= link_to 'Back', schedules_path %>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->

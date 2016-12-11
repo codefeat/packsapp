@@ -9,6 +9,9 @@ class PaqsController < ApplicationController
   def pickup
   end
 
+  def how1
+  end
+
   def step1
   end
 

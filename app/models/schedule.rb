@@ -1,4 +1,7 @@
 class Schedule < ActiveRecord::Base
-	has_many :slots
+	belongs_to :slot
 	has_many :deliveries
+	
+	#accepts_nested_attributes_for :slot
+	#attr_accessible :window
 end

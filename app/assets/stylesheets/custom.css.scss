@@ -82,6 +82,7 @@
 
 @media(min-width:768px) {
     .side-nav {
+        margin-top: -9px;
         position: fixed;
         top: 60px;
         left: 225px;
@@ -154,16 +155,77 @@
 
 .navbar-brand {
     padding: 5px 15px;
+    color: red !important;
 
 }
 
 .navbar-default .navbar-brand a {
-	color: #f9ab23 !important;
+	color: orange !important;
 }
 
 
 
 /* end   */
+ .cust-block-icons a:link {
+
+ color: orange !important;
+
+ }
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+.tile-icon{
+    display:inline-block;
+    font-size: 40px;
+    line-height: 100px;
+    background-color:transparent !important;
+    color:orange;
+    width: 33%;
+    height: 100px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.tile-icon-lrg{
+    display:inline-block;
+    font-size: 40px;
+    line-height: 300px;
+    background-color:transparent !important;
+    color:white !important;
+    width: 33%;
+    height: 300px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.tile-icon-sm{
+    display:inline-block;
+    font-size: 20px;
+    line-height: 100px;
+    background-color:transparent !important;
+    color:white !important;
+    width: 33%;
+    height: 300px;
+    text-align: center;
+    vertical-align: bottom;
+}
 
 
 .jumbotron {
@@ -257,8 +319,12 @@ a,a:link, a:visited {
 	text-decoration: none !important;
 }
 
-a, a:link, a:visited {
-	color: #B8B8B8  !important;
+a, a:link,  {
+	color: orange !important;
+}
+
+a:active a:visited {
+    color: #B8B8B8  !important;
 }
 
 .navbar-default .container-fluid .navbar-brand{
@@ -269,12 +335,26 @@ a, a:link, a:visited {
 	background: #efefef !important;
 }
 
+.panel.panel-default {
+    background: white !important;
+}
+
 
 
 @media(max-width:767px){
+
+    .panel.panel-default {
+    background: white !important;
+}
 	.jumbotron{
 	display:none;
 	}
+
+    .profile-header-img > img.img-circle {
+    width: 90px !important;
+    height: 90px !important;
+    border: 4px solid #cccccc;
+}
 
 	
 	.container-fluid{

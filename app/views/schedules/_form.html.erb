@@ -5,12 +5,11 @@
     <%= f.input :day, class: "form-control" %>
     </div>
     <div class="form-group">
-    <%= f.label :slot, class: "form-label" %>
+    <%= f.label :slot_id, class: "form-label" %>
 	    <div class="form-control">
-	    <%= collection_select( :slot, :slot_id, Slot.all, :id, :window, {}, { :multiple => false} ) %>
+	    <%= collection_select( :schedule, :slot_id, Slot.all, :id, :window, {}, { :multiple => false } ) %>
 	    </div>
     </div>
-
     <% if Delivery.exists?(user_id: current_user.id) %>
         <% for delivery in @deliveries %>
           <% 
@@ -20,7 +19,7 @@
         <% end %>
       <% end %>
       <%= f.hidden_field :delivery_id, value: @myDelivery %>
-<%= @myDelivery %>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

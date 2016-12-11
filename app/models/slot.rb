@@ -1,4 +1,4 @@
 class Slot < ActiveRecord::Base
-	belongs_to :schedule
+	has_many :schedule
 	#belongs_to :delivery
 end

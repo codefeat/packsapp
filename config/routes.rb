@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :schedules
+
   get 'appointments/new' 
 
   get 'paqs/address'
@@ -8,6 +9,18 @@ Rails.application.routes.draw do
   get 'paqs/deliver'
 
   get 'paqs/pickup'
+
+  get 'paqs/how1'
+
+  get 'paqs/how2'
+
+  get 'paqs/how3'
+
+  get 'paqs/how4'
+
+  get 'paqs/how5'
+
+  get 'paqs/how6'
 
   get 'paqs/step1'
 

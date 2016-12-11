@@ -4,7 +4,9 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
      <%= render 'layouts/navbartop' %>
      <% if user_signed_in? %>
-       <%= render 'layouts/navbarright' %>
+     <%= render 'layouts/navbar' %>
+      
+
        <%= render 'layouts/navbarside' %>
      <% end %>
   </nav>
@@ -15,8 +17,8 @@
             <div class="row" id="main" >
                 <% if user_signed_in? %>
                 
-                    <div class="row">
-                        <div class="profile-header-container">   
+                    <div class="row" style="display: none;">
+                        <div class="profile-header-container" >   
                             <div class="profile-header-img">
                             <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
                                 <div class="rank-label-container">
@@ -26,17 +28,36 @@
                         </div> 
                     </div>
                 <div class="step1">
-                <h2>Deliver</h2>
-                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                          <%= link_to "Delivery", root_path, class: "btn btn-default" %>
+                <h2></h2>
+                <h2 style="padding-bottom: 20px;"></h2>
+                <div class="row" style="margin:0px;">
+                  <div class="col-lg-12">
+                    <div class="row">
+                    <div style="background-color:transparent; height:100px">
+                      <div class="col-1g-1 tile-icon " style="height:100px; width:50%; float:left;"><a href="/" class="cust-block-icons" style="color: #b0b0b0 !important;">Delivery</a>
+                          
                         </div>
-                        <div class="btn-group" role="group">
-                          <%= link_to "Pick-up", paqs_pickup_path, class: "btn btn-default" %>
+
+                      <div class="col-1g-1 tile-icon " style="background-color:#0f0; height:100px; width:50%; float:left; border-left: 1px solid;">
+                          <a href="paqs/pickup" class="cust-block-icons">Pickup</a>
                         </div>
                       </div>
-                      
-                                              <hr>
+                    </div>
+
+
+                    <div class="row" style="display: none;">
+                    <div style="background-color:transparent; height:100px">
+                      <div class="col-1g-1 tile-icon " style="height:100px; width:50%; float:left;"><a href="/" class="cust-block-icons" style="color: #b0b0b0 !important;"><i class=" fa fa-truck "></i></a>
+                          
+                        </div>
+                      <div class="col-1g-1 tile-icon " style="background-color:#0f0; height:100px; width:50%; float:left;">
+                          <a href="paqs/pickup" class="cust-block-icons""><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    <hr>
                         <% if Order.exists?(user_id: current_user.id) %>
                             <% for order in @order %>
                             <div class="row" style="display: none;">
@@ -73,7 +94,8 @@
                         <% else %>
                             
                             <div class="cust-mob-body-text">
-                             <h3>No orders available at this time.</h3>
+                             <h3 style="color: orange!important;">No orders available at this time.</h3>
+                             <hr>
                             <p class="mobile-para">Online purchases sent to your NextPakk address will show up here when they're ready
                             to be delivered.</p>
                             </div>
@@ -90,7 +112,7 @@
                     
                 </div><br />
                       <% if user_signed_in? && current_user.admin? %>
-                <table class="table table-hover table-condensed">
+                <table class="table table-hover table-condensed" style="display: none;">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -124,4 +146,47 @@
     </div>
     <!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
+
+<div class="row" style="margin:0px; display: none;">
+  <div class="col-lg-12 tile-icon btn btn-default" style=" height: 100px; width: 99% !important;"><i class=" fa fa-truck "></i>
+  </div>
+  
+</div>
+<div class="row" style="margin:0px; display: none;">
+  
+  <div class="col-lg-12">
+    <div class="row">
+    <div style="background-color:transparent; height:100px">
+      <div class="col-1g-1 tile-icon btn btn-default" style="height:100px; width:33%; float:left;"><i class=" glyphicon glyphicon-thumbs-up "></i>
+          
+        </div>
+      <div class="col-1g-1 tile-icon btn btn-default" style="background-color:#0f0; height:100px; width:33%; float:left;">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </div>
+      <div class="col-1g-9 tile-icon btn btn-default" style="background-color:#333; height:100px; width: 33%;"><i class="glyphicon glyphicon-shopping-cart"></i>
+          
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin:0px; display: none;">
+  
+  <div class="col-lg-12">
+    <div class="row">
+    <div style="background-color:transparent; height:100px">
+      <div class="col-1g-1 tile-icon btn btn-default" style="height:100px; width:33%; float:left;"><i class="glyphicon glyphicon-object-align-bottom"></i>
+          
+        </div>
+      <div class="col-1g-1 tile-icon btn btn-default" style="background-color:#0f0; height:100px; width:33%; float:left;">
+          <i class="glyphicon glyphicon-usd"></i>
+        </div>
+      <div class="col-1g-9 tile-icon btn btn-default" style="background-color:#333; height:100px; width: 33%;"><i class="glyphicon glyphicon-question-sign"></i>
+          
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
 
