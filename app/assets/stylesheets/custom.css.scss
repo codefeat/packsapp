@@ -80,6 +80,7 @@
 
 /* Side Navigation */
 
+<<<<<<< HEAD
 /* Start Box How It Works */
 @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
 @import "http://fonts.googleapis.com/css?family=Roboto:400,500";
@@ -194,6 +195,43 @@ html, body, .container, .content {
 .footer-wrapper {
     position: relative;
     height: 50px;
+=======
+
+/* start sticky footer */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.footer-block { margin: 20px 0; }
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+>>>>>>> add-schedule
 }
 
 /* end sticky footer */
