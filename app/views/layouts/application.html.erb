@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% unless current_page?('/paqs') %>
+<% if params[:controller] == 'paqs' %>
 
 <% else %>
 	<%= render'layouts/navbar' %>
@@ -25,8 +25,8 @@
        		<% end %>
        		<% end %>
 		<%= yield %>
-    <% unless current_page?('/paqs') %>
-
+    <% if params[:controller] == 'paqs' %>
+    
     <% else %>
 		<%= render'layouts/footer' %>
     <% end %>

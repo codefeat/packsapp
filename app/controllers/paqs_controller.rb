@@ -12,6 +12,21 @@ class PaqsController < ApplicationController
   def how1
   end
 
+  def how2
+  end
+
+  def how3
+  end
+
+  def how4
+  end
+
+  def how5
+  end
+
+  def how6
+  end
+
   def step1
   end
 
