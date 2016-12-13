@@ -80,120 +80,6 @@
 
 /* Side Navigation */
 
-/* Start Box How It Works */
-@import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
-@import "http://fonts.googleapis.com/css?family=Roboto:400,500";
-
-.box > .icon { 
-text-align: center; position: relative; 
-}
-.box > .icon > .image { 
-position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: #0069ff; vertical-align: middle; }
-.box > .icon:hover > .image { 
-background: #333; 
-}
-.box > .icon > .image > i { 
-font-size: 36px !important; color: #fff !important; 
-}
-.box > .icon:hover > .image > i { 
-color: white !important; 
-}
-.box > .icon > .info { 
-margin-top: -24px; background: transparent; border: 0px solid #e0e0e0; padding: 15px 0 10px 0; 
-}
-.box > .icon:hover > .info { 
-background: rgba(0, 0, 0, 0.04); border-color: #e0e0e0; color: white; 
-}
-.box > .icon > .info > h3.title { 
-font-family: "Roboto",sans-serif !important; font-size: 16px; color: #222; font-weight: 500; 
-}
-.box > .icon > .info > p { 
-font-family: "Roboto",sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;
-}
-.box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { 
-color: #222; 
-}
-.box > .icon > .info > .more a { 
-font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; 
-}
-.box > .icon:hover > .info > .more > a { 
-color: #fff; padding: 6px 8px; background-color: #63B76C; 
-}
-.box .space { 
-height: 30px; 
-}
-/* End Box */
-
-/*full width video */
-    .video-section .pattern-overlay {
-background-color: rgba(71, 71, 71, 0.59);
-padding: 110px 0 32px;
-min-height: 496px; 
-/* Incase of overlay problems just increase the min-height*/
-}
-.video-section h1, .video-section h3{
-text-align:center;
-color:#fff;
-}
-.video-section h1{
-font-size:110px;
-font-family: 'Buenard', serif;
-font-weight:bold;
-text-transform: uppercase;
-margin: 40px auto 0px;
-text-shadow: 1px 1px 1px #000;
--webkit-text-shadow: 1px 1px 1px #000;
--moz-text-shadow: 1px 1px 1px #000;
-}
-.video-section h3{
-font-size: 25px;
-font-weight:lighter;
-margin: 0px auto 15px;
-}
-.video-section .buttonBar{display:none;}
-.player {font-size: 1px;}
-
-html, body{ height: 100%; margin: 0; padding: 0;}
-#background {
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: -999;
-    width: 100%;
-    height: 100%;
-}
-.container-fluid{margin: 0; padding: 0; height: 100%;}
-.embed-responsive{height: 100%;}
-
-/* end full width video */
-
-/* Start Sticky Footer */
-
-html, body, .container, .content {
-    height: 100%;
-}
-
-.container, .content {
-    position: relative;
-}
-
-.proper-content {
-    padding-top: 40px; /* >= navbar height */
-}
-
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -50px; /* same as the footer */
-}
-
-.push {
-    height: 50px; /* same as the footer */
-}
-.footer-wrapper {
-    position: relative;
-    height: 50px;
 
 /* start sticky footer */
 
@@ -299,7 +185,7 @@ body > .container {
 }
 
 .navbar-default .navbar-nav>li>a:hover{
-	background: #efefef !important;
+    background: #efefef !important;
 }
 
 .navbar .nav > li > a:hover > .label {
@@ -315,7 +201,7 @@ body > .container {
 }
 
 .navbar-default .navbar-brand a {
-	color: orange !important;
+    color: orange !important;
 }
 
 
@@ -384,46 +270,46 @@ body > .container {
 
 
 .jumbotron {
-	background-color: #f9ab23 !important;
-	border: 1px solid #0069ff;	
+    background-color: #f9ab23 !important;
+    border: 1px solid #0069ff;  
 
-	h1{
-	color: #0069ff !important;
-	}
+    h1{
+    color: #0069ff !important;
+    }
 
-	h3{
-	color: #f9ab23;
+    h3{
+    color: #f9ab23;
     font-weight: bold !important;
-    	text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
+        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
 
-	}
+    }
 
-	h2{
-	color:#0069ff !important;
-	font-weight: bold;
-	}
+    h2{
+    color:#0069ff !important;
+    font-weight: bold;
+    }
 }
 
 .navbar-default {
-	.container-fluid {	
-		background-color: #ffffff;
-			.navbar-nav > li > a {
-			color:#000000;
-			font-size: 16px;
-			font-weight: bold;
-		}
-		.navbar-brand {
-		color:#f9ab23;
-		font-size: 30px;
-		font-weight: bold;
-		font-family: 'Days One', sans-serif;
-		text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
-		}
-	}
+    .container-fluid {  
+        background-color: #ffffff;
+            .navbar-nav > li > a {
+            color:#000000;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .navbar-brand {
+        color:#f9ab23;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Days One', sans-serif;
+        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1x 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff;
+        }
+    }
 }
 
 .container-fluid {
-	padding: 10px 120px !important;
+    padding: 10px 120px !important;
 
 }
 
@@ -459,23 +345,23 @@ background-image: url("https://s3.amazonaws.com/nextpakk/Delivery-man-makes-his-
 background-size: cover;}
 
 .nav-tabs>li>a {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .navbar-default .container-fluid .navbar-brand {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .navbar-nav > li > a  {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 a,a:link, a:visited {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 a, a:link,  {
-	color: orange !important;
+    color: orange !important;
 }
 
 a:active a:visited {
@@ -483,11 +369,11 @@ a:active a:visited {
 }
 
 .navbar-default .container-fluid .navbar-brand{
-	color: #f9ab23 !important;
+    color: #f9ab23 !important;
 }
 
 .top-nav > li > a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus {
-	background: #efefef !important;
+    background: #efefef !important;
 }
 
 .panel.panel-default {
@@ -501,9 +387,9 @@ a:active a:visited {
     .panel.panel-default {
     background: white !important;
 }
-	.jumbotron{
-	display:none;
-	}
+    .jumbotron{
+    display:none;
+    }
 
     .profile-header-img > img.img-circle {
     width: 90px !important;
@@ -511,43 +397,43 @@ a:active a:visited {
     border: 4px solid #cccccc;
 }
 
-	
-	.container-fluid{
-	background: whitesmoke;
-	color: black !important;
-	}
+    
+    .container-fluid{
+    background: whitesmoke;
+    color: black !important;
+    }
 
-	.mobile-body{
-	color:black !important;
-	}
+    .mobile-body{
+    color:black !important;
+    }
 
-	.mobile-body a{
-	text-decoration: none !important;
-	}
+    .mobile-body a{
+    text-decoration: none !important;
+    }
 
-	.mobile-body h1, h2, h3, h4{
-	color:black !important;
-	}
+    .mobile-body h1, h2, h3, h4{
+    color:black !important;
+    }
 
 
-	.custom-ftr{
-	display:none;
-	}
-	.custom-ftr-mobile{
-		display:block !important;
-	}
-	.mobile-para{
-		color:#333333 !important;
-		font-size: 16px !important;
-	}
-	.cust-mob-body-text{
-		text-align: center !important;
-	}
-	.cust-head-subhead-text{
-	color: black !important;
-	}
+    .custom-ftr{
+    display:none;
+    }
+    .custom-ftr-mobile{
+        display:block !important;
+    }
+    .mobile-para{
+        color:#333333 !important;
+        font-size: 16px !important;
+    }
+    .cust-mob-body-text{
+        text-align: center !important;
+    }
+    .cust-head-subhead-text{
+    color: black !important;
+    }
 
-	table {
+    table {
         width:95%;
     }
     form input[type=text], form input[type=password], form input[type=email], form input[type=number], form input[type=url], form input[type=tel], form input[type=date], form textarea {
@@ -559,12 +445,16 @@ a:active a:visited {
     }
 
     body {
-    	background: whitesmoke !important;
+        background: whitesmoke !important;
     }
 
     .step1 {
-    	min-height: 60px !important;
+        min-height: 60px !important;
     }
+
+    
+
+    
 
 }
 @media(min-width:768px){}
