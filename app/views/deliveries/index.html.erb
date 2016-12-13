@@ -101,13 +101,25 @@
                             </div>
                         <% end %>
                   <% else %>
-                      <div class="mobile-body">
-                        <h1>NextPakk</h1>
-                        <h4>The Smart, Secure, Convenient way for package delivery! "We've Got Your Pack"
+                      <br /><br /><br /><div class="mobile-body">
+                      <%= image_tag "https://s3.amazonaws.com/nextpakkweb/Delivery-man-makes-his-rounds.jpg", class: "img-responsive" %>
+                        <h1></h1>
+                        <h4>Tired of miss deliveries, stolen packages and packages left in the snow and rain?
+                        </h4>
+
+                        <h4>NextPakk, the Smart, Secure, Convenient way for package delivery! Schedule delivery to your home 7 days a week from 6pm to midnight "We've Got Your Pack"
                         </h4><br />
                       </div>
-                      <%= link_to "login", new_user_session_path, class: "btn btn-info" %>
-                      <%= link_to "sign up", new_user_registration_path, class: "btn btn-info " %>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-xs-6">
+                              <%= link_to "login", new_user_session_path, class: "btn btn-info btn-lg" %>
+                            </div>
+                          <div class="col-xs-6">
+                              <%= link_to "sign up", new_user_registration_path, class: "btn btn-info btn-lg " %>
+                            </div>
+                            </div>
+                      </div>
                   <% end %>
                     
                 </div><br />
