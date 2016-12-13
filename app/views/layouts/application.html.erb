@@ -26,9 +26,11 @@
        		<% end %>
 		<%= yield %>
     <% if params[:controller] == 'paqs' %>
-    
-    <% else %>
+      
+    <% elsif user_signed_in? %>
 		<%= render'layouts/footer' %>
+    <% else %>
+    <%= render 'layouts/footer_public' %>
     <% end %>
 	</div>
 </body>
