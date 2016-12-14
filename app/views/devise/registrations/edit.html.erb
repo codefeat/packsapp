@@ -3,11 +3,13 @@
       <div id ="top-menu" class="container-fluid active">
           <a class="navbar-brand" href="/">NextPakk</a>
           <ul class="nav navbar-nav">        
-              <form id="qform" class="navbar-form pull-left" role="search">
+              <form id="qform" class="navbar-form pull-left" role="search" style="display: none;">
                  <input type="text" class="form-control" placeholder="Search" />                        
                </form>
               <li class="dropdown movable">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-4x fa-child"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " style="max-width: 65px;  border: 3px solid #b0b0b0;" >
+                                            <%= image_tag current_user.image, class: "img-responsive circle-avatar center-block" %>
+                                        </span></span></a>
                   <ul class="dropdown-menu" role="menu">
                       <li><a href="#"><span class="fa fa-user"></span>My Profile</a></li>
                       <li><a href="#"><span class="fa fa-gear"></span>Settings</a></li>
@@ -37,7 +39,7 @@
         <span class='burger_inside' id='bgrThree'></span>
       </a>      
     </div>
-    <section class="content-inner">
+    <section class="content-inner" style="width: 97% !important; margin: 0 auto !important;">
           <br /><h2>Edit <%= resource_name.to_s.humanize %> Profile</h2>
 
           
