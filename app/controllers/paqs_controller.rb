@@ -47,4 +47,7 @@ class PaqsController < ApplicationController
 
   def step7
   end
+
+  def step8
+  end
 end

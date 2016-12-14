@@ -1,20 +1,23 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-       <%= render 'layouts/navbartop' %>
-     <% if user_signed_in? %>
-     <%= render 'layouts/navbar' %>
-      
-
-       <%= render 'layouts/navbarside' %>
-     <% end %>
+  <div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
   </nav>
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row" id="main" >
-                <div class="step1">
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+          <div class="step1" style="margin-top: -55px;">
                     <h2></h2>
                     <h2 style="padding-bottom: 20px;"></h2>
                     <div class="row" style="margin:0px;">
@@ -42,7 +45,7 @@
                         </div>
                       </div>
                     </div>
-                          <br />
+                          
                            <hr>
                           <div class="cust-mob-body-text">
 
@@ -51,7 +54,7 @@
                     <hr>      
                     <div class="mobile-body">
 
-                    <h4 class="mobile-para">What is the size of your package?</h4>
+                    <h4 class="mobile-para" style="text-align: center !important;">What is the size of your package?</h4>
                     </div>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                       <div class="panel panel-default">
@@ -131,10 +134,10 @@
                     </div>
 
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
-<hr>
+
+    </section>
+  </div>  
+  
+</div>
+
+

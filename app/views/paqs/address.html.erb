@@ -1,52 +1,36 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-       <%= render 'layouts/navbartop' %>
-     <% if user_signed_in? %>
-     <%= render 'layouts/navbar' %>
-      
-
-       <%= render 'layouts/navbarside' %>
-     <% end %>
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="#">NextPakk</a>
+            <%= render 'layouts/user_nav' %>
+      </div>      
   </nav>
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-
-            <div class="row" id="main" >
-                    <div class="row">
-                        <div class="profile-header-container"
-                        >   
-                            <div class="profile-header-img" style="display: none;">
-                            <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
-                                <div class="rank-label-container">
-                                    <span class="label label-default rank-label"><%= current_user.first_name %></span>
-                                </div>
-                            </div>
-                            
-                    </div>
-                    <div class="add-custom-hdr" style="display: block !important; margin-top: -20px; width: 100% important;"><%= image_tag "https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png", class: "img-responsive" %> </div><br /><br />
-                        </div> 
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+          <div class="add-custom-hdr" style="display: block !important; margin-top: -0px; width: 80% important;"><%= image_tag "https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png", class: "img-responsive" %> </div><br /><br />
+                       <br />
                         <hr>
-                <div class="step1">
-                      
-                      <div class="cust-mob-body-text">
+                
                       <h2 style="color: orange !important;">Your NextPakk Address</h2>
-                      <p class="mobile-para" style="text-align: left !important;">
+                      <p>
                       <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><br />
                       3601 25th Ave S.<br />
                       NextPakk #<%= current_user.packs_num %><br />
-                      Minneapolis, MN 555406	
+                      Minneapolis, MN 555406  
                       </p>
-                      </div>
-                </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
-<br />
-<%= render'layouts/footer' %>
+
+                
+    </section>
+  </div>  
+  
+</div>

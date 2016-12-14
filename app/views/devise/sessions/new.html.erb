@@ -1,17 +1,23 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-   <%= render 'layouts/navbartop' %>
-   </nav>
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row" id="main" >
-     <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top: 80px;">
-                <div class="login-panel ">
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
+  </nav>
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+          <div class="login-panel ">
                     <div class="panel-heading">
                         <h3 class="panel-title">Log in</h3>
                     </div>
@@ -40,17 +46,16 @@
                           </div>
                         <% end %>
                         <%= render "devise/shared/links" %>
-
                 </div>
             </div>
-        </div>
-    </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
+    </section>
+  </div>  
+  
+</div>
+
+
+
+
 
 
 

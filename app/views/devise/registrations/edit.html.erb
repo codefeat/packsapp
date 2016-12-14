@@ -1,4 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <ul class="nav navbar-nav">        
+              <form id="qform" class="navbar-form pull-left" role="search">
+                 <input type="text" class="form-control" placeholder="Search" />                        
+               </form>
+              <li class="dropdown movable">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-4x fa-child"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="#"><span class="fa fa-user"></span>My Profile</a></li>
+                      <li><a href="#"><span class="fa fa-gear"></span>Settings</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#"><span class="fa fa-power-off"></span>Logout</a></li>
+                  </ul>
+              </li>
+              
+          </ul>
+      </div>      
+  </nav>
+  <aside id="side-menu" class="aside" role="navigation" style="background: whitesmoke !important;">            
+        <ul class="nav nav-list accordion"> 
+        <li><%= link_to "Delivery", root_path , class: "link" %><i class="fa fa-lg fa-truck"></i></li> 
+        <li><%= link_to "Pickup", paqs_pickup_path, class: "link" %><i class="fa fa-lg fa-thumbs-up"></i></li> 
+        <li><%= link_to "Address", paqs_address_path, class: "link" %><i class="fa fa-lg fa-map-marker"></i></li> 
+        <li><%= link_to "How It Works", paqs_how1_path, class: "link" %><i class="fa fa-lg fa-cloud"></i></li>                    
+    </ul>
+  </aside>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+          <br /><h2>Edit <%= resource_name.to_s.humanize %> Profile</h2>
+
+          
+    <br /><h3>NextPakk Customer #<%= current_user.packs_num %></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: :true }) do |f| %>
   <%= devise_error_messages! %>
@@ -55,3 +98,7 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 
 <%= link_to "Back", :back, class: "btn btn-link" %>
+    </section>
+  </div>  
+  
+</div>
