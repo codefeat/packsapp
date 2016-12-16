@@ -1,33 +1,25 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-     <%= render 'layouts/navbartop' %>
-     <% if user_signed_in? %>
-       <%= render 'layouts/navbarright' %>
-       <%= render 'layouts/navbarside' %>
-     <% end %>
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
   </nav>
- 
-    
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row" id="main" >
-                
-                <div class="row">
-                    <div class="profile-header-container">   
-                        <div class="profile-header-img">
-                        <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
-                            <div class="rank-label-container">
-                                <span class="label label-default rank-label"><%= current_user.first_name %></span>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="step1">
-                <h1>Scheduled Delivery</h1>
-                  <table>
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+    <br />
+          <h1>Scheduled Delivery</h1>
+                  <table class="table table-hover table-condensed" style="width: 97% !important;">
                     <thead>
                       <tr>
                         <th>Day</th>
@@ -55,13 +47,9 @@
                   <br>
 
 <%= link_to 'New Schedule', new_schedule_path %>
-
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
+    </section>
+  </div>  
+  
+</div>
 
 

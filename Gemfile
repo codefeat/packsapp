@@ -37,3 +37,5 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'simple_form'
 gem 'momentjs-rails'
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

@@ -1,72 +1,102 @@
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-     <%= render 'layouts/navbartop' %>
-     <% if user_signed_in? %>
-       <%= render 'layouts/navbarright' %>
-       <%= render 'layouts/navbarside' %>
-     <% end %>
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
   </nav>
-    
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row" id="main" >
-                
-                <div class="row">
-                    <div class="profile-header-container">   
-                        <div class="profile-header-img">
-                        <%= image_tag current_user.image, class: "img-responsive img-circle center-block" %>                            <!-- badge -->
-                            <div class="rank-label-container">
-                                <span class="label label-default rank-label"><%= current_user.first_name %></span>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-          
-             <div class="panel panel-default">
-                	<div class="panel-heading">
-	                	<h3 class="panel-title">
-	                		Schedule Details
-	                		</h3>
-                	</div>
-                	<div class="panel-body tab-content">
-		                <div class="well">
-			                <p>
-							  <strong>Day:</strong>
-							  <%= @schedule.day.strftime("%A") %>
-							</p>
-							<p>
-							  <strong>Date:</strong>
-							  <%= @schedule.day %>
-							</p>
-
-							<p>
-							  <strong>Window:</strong>
-							  <%= @schedule.slot.window %>
-							</p>
-
-							<p style="display: none;">
-							  <strong>Delivery:</strong>
-							  <%= @schedule.delivery_id %>
-							</p>
-						</div>
-						<div class="btn-group pull-right">
-						<%= link_to 'Edit', edit_schedule_path(@schedule), class: "btn btn-default" %> 
-						<%= link_to 'Back', schedules_path, class: "btn btn-default" %>
-						</div>
-					</div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
     </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
+    <section class="content-inner">
+    <br />
+             <div class="panel panel-primary" style="width: 97% !important; display: none;">
+                  <div class="panel-heading">
+                    <h3 class="panel-title" style="color: white !important;">
+                      Schedule Details
+                      </h3>
+                  </div>
+                  <div class="panel-body tab-content" style="background: white !important;">
+                    
+                      <br /><span style="font-size: 18px !important;">
+                        <strong>Day:</strong>
+                        <%= @schedule.day.strftime("%A") %>
+                      </span><br /><br />
+                      <pspan style="font-size: 18px !important;">
+                        <strong>Date:</strong>
+                        <%= @schedule.day %>
+                      </span><br /><br />
+                      <span style="font-size: 18px !important;">
+                        <strong>Window:</strong>
+                        <%= @schedule.slot.window %>
+                      </span>
+
+                      <span style="display: none;">
+                        <strong>Delivery:</strong>
+                        <%= @schedule.delivery_id %>
+                      </span><br /><br />
+                    
+            <div class="btn-group pull-right">
+            <%= link_to 'Edit', edit_schedule_path(@schedule), class: "btn btn-default" %> 
+            <%= link_to 'Back', schedules_path, class: "btn btn-default" %>
+            </div>
+          </div>
+            </div>
 
 
 
 
+             <div class="panel panel-primary" style="width: 97% !important;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: white !important;">Scheduled Details</h3>
+                    </div>
+                    <div class="panel-body" style="background: white !important; font-size: 14px !important;">
+                        <div class="row">
+                           
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+                                <strong>Day</strong><br>
+                                <dl>
+                                    
+                                    <dd><%= @schedule.day.strftime("%A") %></dd>
+                                    <dt>Date</dt>
+                                    <dd><%= @schedule.day %></dd>
+                                    <dt>Window</dt>
+                                    <dd><%= @schedule.slot.window %></dd>
+                                    
+                                </dl>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-sm btn-primary" type="button"
+                                data-toggle="tooltip"
+                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
+                        <span class="pull-right">
+                            <%= link_to edit_schedule_path(@schedule), class: "btn btn-sm btn-warning"  do %> 
+                            <i class="glyphicon glyphicon-edit" style="color: white !important;"></i>
+                            <% end %>
+                           
+                                    <%= link_to schedules_path, class: "btn btn-sm btn-warning"  do %>
+                                    <i class="glyphicon glyphicon-arrow-left" style="color: white !important;"></i>
+                                    <% end %>
+                        </span>
+                    </div>
+                </div>
+    </section>
+  </div>  
+  
+</div>
 
-
+  
