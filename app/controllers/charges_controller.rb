@@ -23,9 +23,9 @@ def create
  
  
     # place more code upon successfully creating the charge
-    order = Order.create(user_id: params[:user_id] card: params[:stripeToken], order_size: params[:order_size], 
+    order = Order.create(user_id: params[:user_id], card: params[:stripeToken], order_size: params[:order_size], 
     order_description: params[:order_description], order_qty: params[:order_qty], amount: params[:amount],  product_id: params[:product_id],
-    uuid:, SecureRandom.uuid)
+    uuid: SecureRandom.uuid)
   
     redirect_to order
 
