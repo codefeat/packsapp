@@ -36,6 +36,8 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'simple_form'
 gem 'momentjs-rails'
+#gem 'stripe'
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'letter_opener', group: :development

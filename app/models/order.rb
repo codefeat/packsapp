@@ -6,4 +6,8 @@ class Order < ActiveRecord::Base
 	def display_name
 		return :prod_name
 	end
+
+	def to_param
+		uuid
+	end
 end
