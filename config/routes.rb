@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :schedules
-  resources :orders, only: [:show]
+  resources :purchases, only: [:show]
 
   get 'appointments/new' 
 

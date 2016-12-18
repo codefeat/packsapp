@@ -23,11 +23,10 @@ def create
  
  
     # place more code upon successfully creating the charge
-    order = Order.create(user_id: params[:user_id], card: params[:stripeToken], order_size: params[:order_size], 
-    order_description: params[:order_description], order_qty: params[:order_qty], amount: params[:amount],  product_id: params[:product_id],
-    uuid: SecureRandom.uuid)
+    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[:amount], 
+    description: charge.description, currency: charge.currency, customer_id: customer.id, product_id:1, uuid: SecureRandom.uuid)
   
-    redirect_to order
+    redirect_to purchase
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

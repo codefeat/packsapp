@@ -7,7 +7,13 @@ class Order < ActiveRecord::Base
 		return :prod_name
 	end
 
+	after_create :email_orderer
 	def to_param
 		uuid
+	end
+
+	def email_orderer
+		OrderMailer.order_receipt(self).deliver
+		
 	end
 end

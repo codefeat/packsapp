@@ -1,0 +1,125 @@
+Searching 225 files for "datetimepicker"
+
+/Users/nextpakk/Desktop/packsapp/app/inputs/date_picker_input.rb:
+    4      set_value_html_option
+    5  
+    6:     template.content_tag :div, class: 'input-group date datetimepicker' do
+    7        input = super(wrapper_options) # leave StringInput do the real rendering
+    8        input + input_button
+
+/Users/nextpakk/Desktop/packsapp/app/inputs/datetime_picker_input.rb:
+    1: class DatetimePickerInput < DatePickerInput
+    2    private
+    3  
+
+/Users/nextpakk/Desktop/packsapp/app/views/appointments/_form.html.erb:
+   46  
+   47  <script type="text/javascript">
+   48:     $('.datetimepicker').datetimepicker();
+   49  </script>
+   50  
+
+4 matches across 3 files
+
+
+Searching 225 files for "datetimepicker"
+
+/Users/nextpakk/Desktop/packsapp/app/inputs/date_picker_input.rb:
+    4      set_value_html_option
+    5  
+    6:     template.content_tag :div, class: 'input-group date datetimepicker' do
+    7        input = super(wrapper_options) # leave StringInput do the real rendering
+    8        input + input_button
+
+/Users/nextpakk/Desktop/packsapp/app/inputs/datetime_picker_input.rb:
+    1: class DatetimePickerInput < DatePickerInput
+    2    private
+    3  
+
+2 matches across 2 files
+
+
+Searching 225 files for "stripe"
+
+/Users/nextpakk/Desktop/packsapp/app/controllers/charges_controller.rb:
+    6  def create
+    7      # Amount in cents
+    8:     amount = params[:stripeAmount].to_i * 100
+    9   
+   10:     # Create the customer in Stripe
+   11:     customer = Stripe::Customer.create(
+   12:       email: params[:stripeEmail],
+   13:       card: params[:stripeToken]
+   14      )
+   15   
+   16:     # Create the charge using the customer data returned by Stripe API
+   17:     charge = Stripe::Charge.create(
+   18        customer: customer.id,
+   19        amount: amount,
+   20:       description: 'Rails Stripe customer',
+   21        currency: 'usd'
+   22      )
+   23   
+   24      # place more code upon successfully creating the charge
+   25:   rescue Stripe::CardError => e
+   26      flash[:error] = e.message
+   27      redirect_to charges_path
+
+/Users/nextpakk/Desktop/packsapp/app/views/charges/new.html.erb:
+   11    </article>
+   12  
+   13:   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+   14:           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+   15            data-description="A month's subscription"
+   16            data-amount="500"
+
+/Users/nextpakk/Desktop/packsapp/app/views/layouts/_bootstrap.html.erb:
+   11  	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+   12  
+   13: 	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+   14  	<!--full width video -->
+   15  	<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+
+13 matches across 3 files
+
+
+Searching 225 files for "Stripe.setPublishableKey"
+
+0 matches
+
+Searching 17 files for "to_params"
+
+0 matches
+
+Searching 225 files for "to_params"
+
+0 matches
+
+Searching 225 files for "to_param"
+
+/Users/nextpakk/Desktop/packsapp/app/models/order.rb:
+    8  	end
+    9  
+   10: 	def to_param
+   11  		uuid
+   12  	end
+
+1 match in 1 file
+
+
+Searching 231 files for "mailer"
+
+/Users/nextpakk/Desktop/packsapp/app/mailers/order_mailer.rb:
+    1: class OrderMailer < ActionMailer::Base
+    2: 	layout 'order_mailer'
+    3  	default from: "NextPakk Delivery"
+    4  
+
+/Users/nextpakk/Desktop/packsapp/app/models/order.rb:
+   14  
+   15  	def email_orderer
+   16: 		OrderMailer.order_receipt(self).deliver
+   17  		
+   18  	end
+
+4 matches across 2 files
