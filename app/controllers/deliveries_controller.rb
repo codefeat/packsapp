@@ -61,7 +61,7 @@ class DeliveriesController < ApplicationController
 
         #Appointment.create!(:delivery_id => @delivery.id, :slot_id => @delivery[:appt_id])
         Appointment.create!(:slot_id => @delivery[:appt_id])
-        format.html { redirect_to @delivery, notice: 'delivery was successfully created.' }
+        format.html { redirect_to url_for(:controller => :schedules, :action => :new), notice: 'delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
         format.html { render :new }

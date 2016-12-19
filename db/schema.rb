@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218122401) do
+ActiveRecord::Schema.define(version: 20161219201339) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20161218122401) do
     t.datetime "updated_at",                    null: false
     t.integer  "product_id"
     t.integer  "order_status_id",   default: 1
-    t.string   "uuid"
   end
 
   create_table "pickups", force: :cascade do |t|
@@ -110,6 +109,8 @@ ActiveRecord::Schema.define(version: 20161218122401) do
     t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "sku"
+    t.decimal  "total_price"
   end
 
   create_table "purchases", force: :cascade do |t|

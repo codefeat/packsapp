@@ -9,6 +9,10 @@ class PaqsController < ApplicationController
   def pickup
   end
 
+  def pay
+    @product = Product.find_by_sku("npmdpkg")
+  end
+
   def how1
   end
 

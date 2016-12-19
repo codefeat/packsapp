@@ -1,11 +1,17 @@
 class ChargesController < ApplicationController
 def new
+  @schedule = @user.schedules.all if @user
+  @schedules = Schedule.all
+
     # this will remain empty unless you need to set some instance variables to pass on
 end
  
 def create
+  product = Product.find_by_sku("nplrgpkg")
+  @schedule = @user.schedules.all if @user
+  @schedules = Schedule.all
     # Amount in cents
-    #amount = params[:stripeAmount].to_i * 100
+   amount = (3.99).to_i + params[:stripeAmount].to_i * 100 
  
     # Create the customer in Stripe
     customer = Stripe::Customer.create(
@@ -23,8 +29,8 @@ def create
  
  
     # place more code upon successfully creating the charge
-    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[:amount], 
-    description: charge.description, currency: charge.currency, customer_id: customer.id, product_id:1, uuid: SecureRandom.uuid)
+    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: product.total_price_in_cents + 3.99, 
+    description: charge.description, currency: charge.currency, customer_id: customer.id, product_id: product.id, uuid: SecureRandom.uuid)
   
     redirect_to purchase
 

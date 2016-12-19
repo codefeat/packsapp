@@ -34,13 +34,15 @@
     <%= f.hidden_field :user_packnum, value: current_user.packs_num %>
     <% if Order.exists?(user_id: current_user.id) %>
         <% for order in @order %>
-          <% 
+          <%
           @myOrder = order.id 
+          @myOrderprod = order.product_id
           %> 
          
         <% end %>
       <% end %>
       <%= f.hidden_field :order_id, value: @myOrder %>
+      <%= f.hidden_field :product_id, value: @myOrderprod %>
   </div>
   <div class="form-group">
     <%= f.label :image %><br>

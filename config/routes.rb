@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'paqs/deliver'
 
+  get 'paqs/pay'
+
   get 'paqs/pickup'
 
   get 'paqs/how1'

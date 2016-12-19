@@ -4,6 +4,16 @@
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
+
+      <% if Schedule.exists?(user_id: current_user.id) %>
+        <% for schedule in @schedules %>
+          <%= 
+          @myschedule = schedule.id 
+          %> 
+         
+        <% end %>
+      <% end %>
+      <%= f.hidden_field :schedule_id, value: @mySchedule %>
     <% end %>
     <!--label class="amount">
       <span>Amount: $5.00</span>
@@ -12,7 +22,7 @@
 
   <script src="https://checkout.stripe.com/checkout.js"></script>
   <%= hidden_field_tag 'stripeToken' %>
-  <%= hidden_field_tag 'amount', 499 %>
+  <%= hidden_field_tag 'amount', @amount %>
   <%= hidden_field_tag 'stripeEmail' %>
   <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
   
@@ -28,7 +38,7 @@
     document.getElementById('btn-buy').addEventListener('click', function(e)  {
       handler.open({
         name: 'Learn Rails',
-        description : 'Buy this item for ($4.99)',
+        description : 'Product description',
         amount: document.getElementById('amount').value
       });
       e.preventDefault();
