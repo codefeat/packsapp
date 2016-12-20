@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
 
+  resources :products
   resources :charges
   get 'pages/about'
 

@@ -22,7 +22,7 @@ def create
     # Create the charge using the customer data returned by Stripe API
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: params[:amount],
+      amount: product.total_price_in_cents,
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
