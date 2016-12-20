@@ -20,4 +20,4 @@
 //= require turbolinks
 //= require_tree .
 
-$ Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
+
