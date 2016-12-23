@@ -1,0 +1,35 @@
+<%= simple_form_for(@subscription) do |f| %>
+  
+<% if @subscription.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="true">
+      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+      <h4><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h4>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form-group">
+
+ 
+  
+    <div class="form-group">
+    <%= f.label "Plan" %><br />
+	   
+	    <%= collection_select( :subscription, :plan_id, Plan.all, :id, :plan_name, {include_blank: 'Select a plan'}, { :multiple => false } ) %>
+</div>
+  <% if user_signed_in? %>
+        <%  @thisUser= current_user.id %>
+      <% end %>
+</div>
+      <%= f.hidden_field :user_id, value: @thisUser %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

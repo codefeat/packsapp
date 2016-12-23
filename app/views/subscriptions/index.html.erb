@@ -1,0 +1,110 @@
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
+  </nav>
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+    <br />
+
+             <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: white !important;">subscription Details</h3>
+                    </div>
+                    <div class="panel-body" style="background: white !important; font-size: 14px !important;">
+                        <div class="row">
+                           
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-ok"></i></span>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+                       
+
+                                <dl>
+
+                                    <h2 style="color: #5E6469 !important;">Current Subscription</h2>
+
+                                        <% if Subscription.exists?(user_id: current_user.id) %>
+                            <% for subscription in @subscription %>
+                                       
+                                          <dd ><h3><%= subscription.plan.plan_name %></h3></dd>
+                                          <dd ><%= subscription.plan.plan_info %></dd>
+                                          <dd ><%= subscription.plan.plan_info1 %></dd><br />
+                                          <dd ><h3><%= subscription.plan.plan_descrip %></h3></dd>
+                                          
+                                </dl>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+
+
+                  
+                  
+
+
+                    <div class="panel-footer">
+                        <button class="btn btn-sm btn-primary" type="button"
+                                data-toggle="tooltip"
+                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
+                        <span class="pull-right">
+                            <%= link_to edit_subscription_path(subscription), class: "btn btn-sm btn-warning"  do %> 
+                            <i class="glyphicon glyphicon-edit" style="color: white !important;"></i>
+                            <% end %>
+                           <% end %>
+                                  
+                        </span>
+                    </div>
+                </div>
+
+                <div class="container">
+      
+           
+  <div class="row db-padding-btm db-attached">
+              <% @plans.each do |plan| %>
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="db-wrapper">
+                    <div class="db-pricing-eleven db-bk-color-one">
+                        <div class="price">
+                            <sup></sup><span style="font-size: 45px !important;"><%= plan.plan_descrip %> </span>
+                        </div>
+                        <div class="type">
+                            <%= plan.plan_name %>
+                        </div>
+                        <ul>
+
+                            <li><i class="fa fa-lg fa-truck"></i><%= plan.plan_info %> </li>
+                            <li><i class="glyphicon glyphicon-time"></i><%= plan.plan_info1 %></li>
+                        </ul>
+                        <div class="pricing-footer">
+                        <%= link_to "UPDATE PLAN", edit_subscription_path(subscription), class: "btn btn-default btn-lg" %>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+                      <% end %>
+        </div>
+        
+    </div>
+</div>
+    </section>
+  </div> 
+<% end %>
+
+
+

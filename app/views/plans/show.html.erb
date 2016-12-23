@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plan name:</strong>
+  <%= @plan.plan_name %>
+</p>
+
+<p>
+  <strong>Plan descrip:</strong>
+  <%= @plan.plan_descrip %>
+</p>
+
+<p>
+  <strong>Plan info:</strong>
+  <%= @plan.plan_info %>
+</p>
+
+<p>
+  <strong>Plan price:</strong>
+  <%= @plan.plan_price %>
+</p>
+
+<p>
+  <strong>Plan image:</strong>
+  <%= image_tag @plan.plan_image_url, class: "img-responsive", style: "width: 100px;" %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

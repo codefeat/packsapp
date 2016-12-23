@@ -1,26 +1,12 @@
   <div class="wrap">
+
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
-          <ul class="nav navbar-nav">        
-              <form id="qform" class="navbar-form pull-left" role="search" style="display: none;">
-                 <input type="text" class="form-control" placeholder="Search" />                        
-               </form>
-              <li class="dropdown movable">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " style="max-width: 65px;  border: 3px solid #b0b0b0;" >
-                                            <%= image_tag current_user.image, class: "img-responsive circle-avatar center-block" %>
-                                        </span></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li><a href="#"><span class="fa fa-user"></span>My Profile</a></li>
-                      <li><a href="#"><span class="fa fa-gear"></span>Settings</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><span class="fa fa-power-off"></span>Logout</a></li>
-                  </ul>
-              </li>
-              
-          </ul>
+          <a class="navbar-brand" href="#">NextPakk</a>
+            <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
+  <%= render 'layouts/user_side_nav' %>
   <aside id="side-menu" class="aside" role="navigation" style="background: whitesmoke !important;">            
         <ul class="nav nav-list accordion"> 
         <li><%= link_to "Delivery", root_path , class: "link" %><i class="fa fa-lg fa-truck"></i></li> 

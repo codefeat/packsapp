@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan name</th>
+      <th>Plan descrip</th>
+      <th>Plan info</th>
+      <th>Plan price</th>
+      <th>Plan image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plans.each do |plan| %>
+      <tr>
+        <td><%= plan.plan_name %></td>
+        <td><%= plan.plan_descrip %></td>
+        <td><%= plan.plan_info %></td>
+        <td><%= plan.plan_price %></td>
+        <td><%= image_tag plan.plan_image_url, class: "img-responsive", style: "width: 100px;" %></td>
+        <td><%= link_to 'Show', plan %></td>
+        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plan', new_plan_path %>

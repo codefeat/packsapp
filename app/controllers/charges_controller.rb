@@ -11,12 +11,13 @@ def create
   @schedule = @user.schedules.all if @user
   @schedules = Schedule.all
     # Amount in cents
-   amount = (3.99).to_i + params[:stripeAmount].to_i * 100 
+   amount = params[:stripeAmount].to_i * 100 
  
     # Create the customer in Stripe
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
-      card: params[:stripeToken]
+      card: params[:stripeToken],
+      plan: "npbaypln"
     )
  
     # Create the charge using the customer data returned by Stripe API
@@ -30,7 +31,7 @@ def create
  
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: product.total_price_in_cents + 3.99, 
-    description: charge.description, currency: charge.currency, customer_id: customer.id, product_id: product.id, uuid: SecureRandom.uuid)
+    description: product.description, currency: "usd", customer_id: customer.id, product_id: product.id, uuid: SecureRandom.uuid)
   
     redirect_to purchase
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :schedules
   resources :purchases, only: [:show]
 
+
   get 'appointments/new' 
 
   get 'paqs/address'
@@ -50,6 +51,8 @@ Rails.application.routes.draw do
 
   resources :products
   resources :charges
+  resources :plans
+  resources :subscriptions
   get 'pages/about'
 
   get 'pages/contact'

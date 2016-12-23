@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:image])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:packs_num])  
   end
+
+  def create_subscription
+      Subscription.create(:user_id => current_user.id, :plan_id => 1)
+  end
 end

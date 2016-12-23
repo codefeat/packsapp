@@ -1,0 +1,40 @@
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
+  </nav>
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner" style="width: 97% !important;">
+    <br />
+    <h1>Edit Your Subscription</h1>
+
+		<%= render 'form' %><br />
+
+		<%= link_to 'Show', @subscription %> |
+		<%= link_to 'Back', subscriptions_path %>
+    </section>
+  </div>  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
