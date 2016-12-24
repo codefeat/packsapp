@@ -53,11 +53,16 @@ Rails.application.routes.draw do
   resources :charges
   resources :plans
   resources :subscriptions
+    get 'subscriptions/:id/pay' => 'subscriptions#pay'
   get 'pages/about'
 
   get 'pages/contact'
 
+  #match 'users/:id' => 'users#show', via: :get
 
+  get 'users/:id' => 'users#show'
+
+  resources :users, only: [:show]
 
   #get 'orders#index'
 

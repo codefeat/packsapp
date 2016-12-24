@@ -12,4 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     	  paqs_how1_path
     	end
   end
+
+  def profile
+  end
 end

@@ -7,7 +7,7 @@ def new
 end
  
 def create
-  product = Product.find_by_sku("nplrgpkg")
+  plan = plan.find_by_sku("npcstpln")
   @schedule = @user.schedules.all if @user
   @schedules = Schedule.all
     # Amount in cents
@@ -23,15 +23,15 @@ def create
     # Create the charge using the customer data returned by Stripe API
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: product.total_price_in_cents,
+      amount: plan.price_in_cents,
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
  
  
     # place more code upon successfully creating the charge
-    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: product.total_price_in_cents + 3.99, 
-    description: product.description, currency: "usd", customer_id: customer.id, product_id: product.id, uuid: SecureRandom.uuid)
+    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: plan.price_in_cents, 
+    description: plan.description, currency: "usd", customer_id: customer.id, plan_id: plan.id, uuid: SecureRandom.uuid)
   
     redirect_to purchase
 

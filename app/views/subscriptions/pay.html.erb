@@ -7,9 +7,9 @@
                       <div class="info-form">
                       <br /> <br />
                       <h3 style="color: white !important;">NextPakk</h3>
-                      <h1 style="color: white !important;"><%= @product.prod_name %></h1>
-                      <h3 style="color: white !important;"><%= raw @product.description %></h3>
-                      <h4 style="color: white !important;">Price: $<%= raw @product.total_price %></h4>
+                      <h1 style="color: white !important;"><%= @plan.plan_name %></h1>
+                      <h3 style="color: white !important;"><%= raw @plan.plan_descrip %></h3>
+                      <h4 style="color: white !important;">Price: $<%= raw @plan.plan_price %></h4>
                       
 
                               
@@ -44,7 +44,7 @@
                     </article-->
                     <script src="https://checkout.stripe.com/checkout.js"></script>
                     <%= hidden_field_tag 'stripeToken' %>
-                    <%= hidden_field_tag 'amount', @product.total_price_in_cents %>
+                    <%= hidden_field_tag 'amount', @plan.price_in_cents %>
                     <%= hidden_field_tag 'stripeEmail' %>
                     <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
                     <script type="text/javascript">
@@ -59,7 +59,7 @@
                       document.getElementById('btn-buy').addEventListener('click', function(e)  {
                         handler.open({
                           name: 'NextPakk Delivery',
-                          description : '<%= @product.prod_name %> ($<%= @product.total_price %>)',
+                          description : '<%= @plan.plan_name %> ($<%= @plan.plan_price %>)',
                           amount: document.getElementById('amount').value 
                         });
                         e.preventDefault();

@@ -4,12 +4,14 @@
                  <input type="text" class="form-control" placeholder="Search" />                        
                </form>
               <li class="dropdown movable">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " style="max-width: 65px;  border: 3px solid #b0b0b0;" >
+                  <a href="/users/edit" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " style="max-width: 65px;  border: 3px solid #b0b0b0;" >
                                             <%= image_tag current_user.image, class: "img-responsive circle-avatar center-block" %>
                                         </span></span></a>
                   <ul class="dropdown-menu" role="menu">
+                  <li><a href="/users/show"> <span class="fa fa-fw fa-user"></span> Profile </a></li>
+                  
                       <li><%= link_to edit_user_registration_path do %>
-                                        <span class="fa fa-fw fa-user"></span> Edit Profile
+                                        <span class="fa fa-pencil-square-o"></span> Edit Profile
                                     <% end %></li> 
                       <li><%= link_to destroy_user_session_path, method: :delete do %>
                                     <span class="fa fa-fw fa-power-off"></span> Sign Out

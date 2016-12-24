@@ -20,7 +20,7 @@ def create
 	@deliveries = Delivery.all
  	respond_to do |format|
       if @schedule.save
-        format.html { redirect_to url_for(:controller => :charges, :action => :new), notice: 'schedule was successfully created.' }
+        format.html { redirect_to url_for(:controller => :paqs, :action => :pay), notice: 'schedule was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }

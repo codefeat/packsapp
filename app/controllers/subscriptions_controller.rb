@@ -18,6 +18,14 @@ class SubscriptionsController < ApplicationController
   def show
   end
 
+  def pay
+    @user = current_user
+    @subscriptions = Subscription.all
+    @subscription = current_user.subscriptions
+    @plans = Plan.all
+    @plan = Plan.find_by_sku("npcstpln")
+  end
+
   # GET /subscriptions/new
   def new
     @subscription = Subscription.new
@@ -76,6 +84,6 @@ class SubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
-      params.require(:subscription).permit(:user_id, :plan_id)
+      params.require(:subscription).permit(:user_id, :plan_id, :sku)
     end
 end

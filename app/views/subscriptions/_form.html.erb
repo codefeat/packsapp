@@ -25,9 +25,12 @@
 </div>
   <% if user_signed_in? %>
         <%  @thisUser= current_user.id %>
+        <%= @plnSku = @subscription.plan.sku %>
       <% end %>
 </div>
       <%= f.hidden_field :user_id, value: @thisUser %>
+      <%= f.hidden_field :sku, value: @plnSku %>
+
 
   <div class="form-actions">
     <%= f.button :submit %>
