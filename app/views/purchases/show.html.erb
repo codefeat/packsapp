@@ -28,33 +28,23 @@
 
                           <table class="table">
                           	<th>Item</th>
-                          	<th>Price</th>
-                          	<th>Quantity</th>
-                          	<th>Totals</th>
+                          	
+                          	
                           	<tr>
-                          		<td><%= @product.prod_name %> Delivery</td>
-                          		<td>$1.00</td>
-                          		<td>1</td>
-                          		<td>$1.00</td>
+                          		<td><%= @plan.plan_name %> Delivery</td>
+                            </tr>
+                          	<tr>
+                            <td><%= @plan.plan_info %></td>
                           	</tr>
                           	<tr>
-                          		<td>Trip</td>
-                          		<td>$3.99</td>
-                          		<td>1</td>
-                          		<td>$3.99</td>
+                          		<td><%= @plan.plan_descrip %></td>
                           	</tr>
-                          	<tr>
-                          		<td></td>
-                          		<td></td>
-                          		<td>Subtotal</td>
-                          		<td>$4.99</td>
+                          	<tr class="pull-right">
+                          		<td >1</td>
                           	</tr>
-                          	<tr>
-                          		<td></td>
-                          		<td></td>
-                          		<td>Total</td>
-                          		<td>$4.99</td>
-                          	</tr>
+                            <tr class="pull-right">
+                              <td >Qty =</td>
+                            </tr>
 
                           </table>
 

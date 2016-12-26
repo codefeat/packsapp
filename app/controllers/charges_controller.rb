@@ -7,9 +7,18 @@ def new
 end
  
 def create
-  plan = plan.find_by_sku("npcstpln")
-  @schedule = @user.schedules.all if @user
-  @schedules = Schedule.all
+  @subscription = Subscription.find_by(params[:id])
+  #@subscription = Subscription.find(params[:subscription][:plan_id]) if params[:plan_id].present?
+  @user = current_user
+  @subscriptions = Subscription.all
+  @plan = Plan.find(@subscription.plan_id)
+  
+  #@plan = Plan.find_by id: params[:subscription][:plan_id]
+  #@subscription = current_user.subscriptions.find(params[:id])
+  #@plan = Plan.find(params[:id]) if params[:id].present?
+  #@sku = subscription.plan.sku
+ # @schedule = @user.schedules.all if @user
+ # @schedules = Schedule.all
     # Amount in cents
    amount = params[:stripeAmount].to_i * 100 
  
@@ -17,21 +26,23 @@ def create
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
       card: params[:stripeToken],
-      plan: "npbaypln"
+      
+      plan: params[:planSku]
     )
  
-    # Create the charge using the customer data returned by Stripe API
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: plan.price_in_cents,
-      description: 'Rails Stripe customer',
-      currency: 'usd'
-    )
+    # # Create the charge using the customer data returned by Stripe API
+    # charge = Stripe::Charge.create(
+    #   customer: customer.id,
+    #   amount: @subscription.plan.price_in_cents,
+    #   description: 'NextPakk customer',
+    #   currency: 'usd'
+    # )
  
  
     # place more code upon successfully creating the charge
-    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: plan.price_in_cents, 
-    description: plan.description, currency: "usd", customer_id: customer.id, plan_id: plan.id, uuid: SecureRandom.uuid)
+    purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
+      :amount], 
+    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @plan.id, uuid: SecureRandom.uuid)
   
     redirect_to purchase
 

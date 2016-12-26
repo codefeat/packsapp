@@ -21,9 +21,10 @@ class SubscriptionsController < ApplicationController
   def pay
     @user = current_user
     @subscriptions = Subscription.all
-    @subscription = current_user.subscriptions
+    @subscription = current_user.subscriptions.find(params[:id])
     @plans = Plan.all
-    @plan = Plan.find_by_sku("npcstpln")
+    #@plan = Plan.find_by_sku("npcstpln")
+    #@plan = @subscription.plan.find(params[:plan_id])
   end
 
   # GET /subscriptions/new
