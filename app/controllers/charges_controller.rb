@@ -39,6 +39,18 @@ def create
         card: params[:stripeToken],
         
         plan: params[:planSku]
+      amount = params[:stripeAmount].to_i * 100 + 100
+      customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      card: params[:stripeToken],
+    )
+    else
+      amount = params[:stripeAmount].to_i * 100 
+      customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      card: params[:stripeToken],
+      
+      plan: params[:planSku]
       )
     end
   #raise "foo"
