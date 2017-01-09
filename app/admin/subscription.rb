@@ -1,9 +1,9 @@
-ActiveAdmin.register Purchase do
+ActiveAdmin.register Subscription do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :list, :of, :attributes, :on, :model, :email, :amount, :description, :currency, :customer_id, :card, :product_id, :uuid
+permit_params :list, :of, :attributes, :on, :model, :user_id, :plan_id, :sku
 #
 # or
 #
@@ -13,11 +13,5 @@ permit_params :list, :of, :attributes, :on, :model, :email, :amount, :descriptio
 #   permitted
 # end
 
-before_filter do
-	Purchase.class_eval do
-		def to_param
-			id.to_s
-		end
-	 end
-  end
+
 end

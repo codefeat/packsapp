@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -47,40 +47,57 @@
                     </div>
                   </div>
                 </div>
-                    <hr>
+                        <% if Schedule.exists?() %>
+                          <% for schedule in @schedules %>
+                          <% @mySched = schedule.delivery_id %>
+                          <% end %> 
+                          <% end  %>
+
+                    
                         <% if Order.exists?(user_id: current_user.id) %>
+                              <hr><table class="table">
+                                  <tr><h2 style="text-align: center;">New Order Available For Delivery</h2></tr>
+                                    <th>NextPack #</th>
+                                    <th>Description</th>
+                                    <th>Size</th>
+                                    <th>Schedule</th>
+                                    
+                                      <% if Subscription.exists?(user_id: current_user.id) %>
+                                        <% for subscription in @subscriptions %>
+                                            <%
+                                            @mySub = subscription.id 
+                                            @myPlan = subscription.plan_id
+                                            %> 
+                                        <% end %>
+                                      <% end %>
+                                            <%  @mySub %>
+                                            <% @myPlan %>
                             <% for order in @order %>
-                            <div class="row" style="display: none;">
-                              <div class="col-xs-4">
-                                <a href="#"><h3><%= order.order_packnum %></h3></a>
-                              </div>
-                              <div class="col-xs-4">
-                                <a href="#"><h3><%= order.order_size %></h3></a>
-                              </div>
-                              <div class="col-xs-4">
-                                <a href="#"><h3><%= order.order_description %></h3></a>
-                              </div>
-                            </div>
-                            <table class="table">
-                            <tr><h2 style="text-align: center;">New Order Available For Delivery</h2></tr>
-                              <th>NextPack #</th>
-                              <th>Description</th>
-                              <th>Size</th>
-                              <th>Schedule</th>
                               <tr>
-                              <td><h4><%= order.order_packnum %></h4></td>
+                              <td><h4><%= current_user.packs_num %></h4></td>
                               <td><h4><%= order.order_description %></h4></td>
                               <td><h4><%= order.order_size %></h4></td>
-                              <% if Order.exists?(user_id: current_user.id) || current_user.admin? %>
-                                <td>
-                                <%= link_to "Schedule Delivery", new_delivery_path, class: "btn btn-default btn-xs" %>
-                                </td>
-                              </tr>
-                            </table>
-                            <%= @delivery %>
+                               <% if !Delivery.exists?(order_id: order.id) %>
+                                    <% for delivery in @deliveries %>
+                                     <td><%= link_to "Schedule Delivery", new_delivery_path, class: "btn btn-default btn-xs" %></td> 
+                                    <% end %>
+                                <% else %>
+                               
+                                       <td>
+                                       
+                                        Delivery Scheduled
+                                      </td>
+                                      
+                                
+                                <% end %>
                               
+                           
+
+
                               <% end %>
-                            <% end %>
+                              </tr>
+                               </table>
+                               
                         <% else %>
                             
                             <div class="cust-mob-body-text">

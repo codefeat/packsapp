@@ -27,14 +27,28 @@
     </div>
     <% if Delivery.exists?(user_id: current_user.id) %>
         <% for delivery in @deliveries %>
-          <% 
-          @myDelivery = delivery.id 
-          %> 
+          <%= @myDelivery = delivery.id %>
+          
+          <%= @myOrderQty = delivery.order_qty %>
+           
          
         <% end %>
       <% end %>
-      <%= f.hidden_field :delivery_id, value: @myDelivery %>
+      <% if Subscription.exists?(user_id: current_user.id) %>
+        <% for subscription in @subscriptions %>
+          <% 
+          @mySub = subscription.id 
+          @myPlan = subscription.plan_id
+          %> 
+        <% end %>
+      <% end %><br />
 
+      <%  @mySub %><br />
+      <% @myPlan %>
+      <%= f.hidden_field :delivery_id, value: @myDelivery %>
+      <%= f.hidden_field :subscription_id, value: @mySub %>
+      <%= f.hidden_field :plan_id, value: @myPlan %>
+      <%= f.hidden_field  "ordQty", value: @myOrderQty %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

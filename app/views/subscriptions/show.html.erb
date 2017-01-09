@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+           <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -19,7 +19,7 @@
     <section class="content-inner">
     <br />
 
-             <div class="panel panel-primary" style="width: 97% !important;">
+             <div class="panel panel-primary" >
                     <div class="panel-heading">
                         <h3 class="panel-title" style="color: white !important;">subscription Details</h3>
                     </div>
@@ -54,13 +54,9 @@
                                 data-toggle="tooltip"
                                 data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
                         <span class="pull-right">
-                            <%= link_to edit_subscription_path(@subscription), class: "btn btn-sm btn-warning"  do %> 
-                            <i class="glyphicon glyphicon-edit" style="color: white !important;"></i>
-                            <% end %>
+                            
                            
-                                    <%= link_to subscriptions_path, class: "btn btn-sm btn-warning"  do %>
-                                    <i class="glyphicon glyphicon-arrow-left" style="color: white !important;"></i>
-                                    <% end %>
+                                    
                         </span>
                     </div>
                 </div>

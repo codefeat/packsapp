@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+           <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -29,23 +29,16 @@
                                 <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-ok"></i></span>
                             </div>
                             <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
-                       
-
                                 <dl>
-
                                     <h2 style="color: #5E6469 !important;">Current Subscription</h2>
-
                                         <% if Subscription.exists?(user_id: current_user.id) %>
-                            <% for subscription in @subscription %>
-                                       
-                                          <dd ><h3><%= subscription.plan.plan_name %></h3></dd>
-                                          <dd ><%= subscription.plan.plan_info %></dd>
-                                          <dd ><%= subscription.plan.plan_info1 %></dd><br />
-                                          <dd ><h3><%= subscription.plan.plan_descrip %></h3></dd>
-                                          
+                                          <% for subscription in @subscription %>
+                                            <dd ><h3><%= subscription.plan.plan_name %></h3></dd>
+                                            <dd ><%= subscription.plan.plan_info %></dd>
+                                            <dd ><%= subscription.plan.plan_info1 %></dd><br />
+                                            <dd ><h3><%= subscription.plan.plan_descrip %></h3></dd>
                                 </dl>
                             </div>
-                            
                         </div>
                     </div>
                     <div class="panel-footer">
@@ -57,40 +50,36 @@
                             <i class="glyphicon glyphicon-edit" style="color: white !important;"></i>
                             <% end %>
                            <% end %>
-                                  
                         </span>
                     </div>
                 </div>
-
                 <div class="container">
-      
-           
-  <div class="row db-padding-btm db-attached">
-              <% @plans.each do |plan| %>
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <div class="db-wrapper">
-                    <div class="db-pricing-eleven db-bk-color-one">
-                        <div class="price">
-                            <sup></sup><span style="font-size: 45px !important;"><%= plan.plan_descrip %> </span>
-                        </div>
-                        <div class="type">
-                            <%= plan.plan_name %>
-                        </div>
-                        <ul>
-
-                            <li><i class="fa fa-lg fa-truck"></i><%= plan.plan_info %> </li>
-                            <li><i class="glyphicon glyphicon-time"></i><%= plan.plan_info1 %></li>
-                        </ul>
-                        <div class="pricing-footer">
-                        <%= link_to "UPDATE PLAN", edit_subscription_path(subscription), class: "btn btn-default btn-lg" %>
-                        </div>
+                  <div class="subContainer">
+                    <div class="row db-padding-btm db-attached">
+                                <% @plans.each do |plan| %>
+                                          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                  <div class="db-wrapper">
+                                      <div class="db-pricing-eleven db-bk-color-one">
+                                          <div class="price">
+                                              <sup></sup><span style="font-size: 45px !important;"><%= plan.plan_descrip %> </span>
+                                          </div>
+                                          <div class="type">
+                                              <%= plan.plan_name %>
+                                          </div>
+                                          <ul>
+                                              <li><i class="fa fa-lg fa-truck"></i><%= plan.plan_info %> </li>
+                                              <li><i class="glyphicon glyphicon-time"></i><%= plan.plan_info1 %></li>
+                                          </ul>
+                                          <div class="pricing-footer">
+                                          <%= link_to "UPDATE PLAN", edit_subscription_path(subscription), class: "btn btn-default btn-lg" %>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>    
+                                <% end %>
+                      </div>
                     </div>
                 </div>
-            </div>    
-                      <% end %>
-        </div>
-        
-    </div>
 </div>
     </section>
   </div> 

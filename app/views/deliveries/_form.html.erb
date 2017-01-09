@@ -15,10 +15,7 @@
   <% end %>
 <% userId = current_user.id %>
 <% userPacknum = current_user.packs_num %>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control", placeholder: "Panara Bread" %>
-  </div>
+ 
   <div class="form-group">
     <%= f.label :address %><br>
     <%= f.text_field :address, class: "form-control", placeholder: "350 Fifth Ave, New York, NY 10118" %>
@@ -27,27 +24,27 @@
     <%= f.label :phone %><br>
     <%= f.text_field :phone, class: "form-control", placeholder: "(612) 456-4785" %>
   </div>
-  <div class="form-group">
-    <%= f.label :size %><br>
-    <%= f.text_field :size, class: "form-control", placeholder: "Large" %>
+  <div class="form-group" style="display: block;">
+    
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :user_packnum, value: current_user.packs_num %>
-    <% if Order.exists?(user_id: current_user.id) %>
+    <% if !Delivery.exists?(order_id: @myOrder) && Order.exists?(user_id: current_user.id) %>
         <% for order in @order %>
-          <%
-          @myOrder = order.id 
-          @myOrderprod = order.product_id
-          %> 
+          <% @myOrder = order.id %><br />
+           <% @orderQty = order.order_qty %>
+         
+          <% @myOrderprod = order.product_id %> <br />
          
         <% end %>
+        
+             
       <% end %>
+       
       <%= f.hidden_field :order_id, value: @myOrder %>
       <%= f.hidden_field :product_id, value: @myOrderprod %>
+      <%= f.hidden_field :order_qty, value: @orderQty %>
   </div>
-  <div class="form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image, class: "form-control" %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>

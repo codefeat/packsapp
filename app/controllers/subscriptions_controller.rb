@@ -7,6 +7,7 @@ class SubscriptionsController < ApplicationController
     @user = current_user
     @subscriptions = Subscription.all
     @subscription = current_user.subscriptions
+    #@subs = current_user.subscriptions.find(params[:id])
     #@subscription = Subscription.find(params[:id])
     @plans = Plan.all
     #@subscription = @user.subscriptions.all if @user
@@ -16,13 +17,17 @@ class SubscriptionsController < ApplicationController
   # GET /subscriptions/1
   # GET /subscriptions/1.json
   def show
+    @subscription = Subscription.find(params[:id])
   end
 
   def pay
     @user = current_user
     @subscriptions = Subscription.all
+    @thisDelivery = @getDelivery
+    @delivery = Delivery.find(params[:oid])
     @subscription = current_user.subscriptions.find(params[:id])
     @plans = Plan.all
+    @order = Order.find(@delivery.order_id)
     #@plan = Plan.find_by_sku("npcstpln")
     #@plan = @subscription.plan.find(params[:plan_id])
   end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :schedules
   resources :purchases, only: [:show]
 
 
@@ -47,13 +46,21 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   resources :deliveries do
     resources :reviews, except: [:show, :index]
-  end
 
+  end
+  
   resources :products
   resources :charges
   resources :plans
+  resources :schedules 
+  
   resources :subscriptions
-    get 'subscriptions/:id/pay' => 'subscriptions#pay'
+  get 'subscriptions/:id/pay' => 'subscriptions#pay'
+    #get '/schedules/:id/pay' => 'subscriptions#pay'
+    #get 'subscriptions/:id/scheduled' => ''
+
+    #match 'subscriptions/:id/pay' => 'subscriptions#pay', via: [:get, :post], :as => :subpay
+ 
   get 'pages/about'
 
   get 'pages/contact'

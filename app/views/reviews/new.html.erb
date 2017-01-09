@@ -1,5 +1,51 @@
-<h1>New Review</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', delivery_path(@delivery) %>
+<div class="wrap">
+  <nav class="nav-bar navbar-default" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/user_nav' %>
+      </div>      
+  </nav>
+  <%= render 'layouts/user_side_nav' %>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="background: whitesmoke !important;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner"><br />
+			<div class="panel panel-primary" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: white !important;">New Review</h3>
+                    </div>
+                    <div class="panel-body" style="background: white !important; font-size: 14px !important;">
+                        <div class="row">
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-map-marker"></i></span>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+									<dl>
+                                    <h1></h1>
+										<%= render 'form' %>
+                                	</dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-sm btn-primary" type="button"
+                                data-toggle="tooltip"
+                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
+                        <span class="pull-right">
+                                    <%= link_to deliveries_path(@delivery), class: "btn btn-sm btn-warning"  do %>
+                                    <i class="glyphicon glyphicon-arrow-left" style="color: white !important;"></i>
+                                    <% end %>
+                        </span>
+                    </div>
+                </div>
+    </section>
+  </div>  
+  
+</div>

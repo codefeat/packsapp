@@ -11,13 +11,43 @@ class DeliveriesController < ApplicationController
     @user = current_user
     @deliveries = Delivery.all
     @orders = Order.all
+    @products = Product.all
     @order = @user.orders.all if @user
+    @subscriptions = Subscription.where(user_id: @user)
+    #@delivery = current_user.deliveries.find(params[:order_id])
+    #@order = current_user.orders.find(params[:id])
+    @schedules = Schedule.all
+    #@delivery = Delivery.where(order_id: @order)
+
+    #@product = Order.where(product_id: @order.products.id)
+    #@delivery = Delivery.find(params[:order_id])
+  end
+
+  def reschedule
+    @user = current_user
+    @deliveries = Delivery.all
+    @orders = Order.all
+    @products = Product.all
+    @order = @user.orders.all if @user
+    @subscriptions = Subscription.where(user_id: @user)
+    #@delivery = Delivery.where(order_id: @order)
+
+    #@product = Order.where(product_id: @order.products.id)
     #@delivery = Delivery.find(params[:order_id])
   end
 
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
+    @user = current_user
+    @deliveries = Delivery.all
+    @orders = Order.all
+    @products = Product.all
+    @order = @user.orders.all if @user
+    @subscriptions = Subscription.where(user_id: @user)
+
+
+    
     @reviews =Review.where(delivery_id: @delivery.id).order("created_at DESC") 
     if @reviews.blank?
       @avg_rating = 0
@@ -29,16 +59,24 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
+    @deliveries = Delivery.all
     @user = current_user
     @orders = Order.all
     @order = @user.orders.all if @user
     @slot = Slot.all
     @appointment = Appointment.all
     @day = Day.all
+
   end
 
   # GET /deliveries/1/edit
   def edit
+    @user = current_user
+    @deliveries = Delivery.all
+    @orders = Order.all
+    @products = Product.all
+    @order = @user.orders.all if @user
+    @subscriptions = Subscription.where(user_id: @user)
   end
 
 
@@ -109,6 +147,6 @@ class DeliveriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:name, :address, :phone, :size, :image, :order_id, :delivery_id, :slot_id)
+      params.require(:delivery).permit(:address, :phone, :order_id, :delivery_id, :slot_id, :order_qty)
     end
 end

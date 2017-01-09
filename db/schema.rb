@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224112049) do
+ActiveRecord::Schema.define(version: 20170108171634) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -62,16 +62,14 @@ ActiveRecord::Schema.define(version: 20161224112049) do
   end
 
   create_table "deliveries", force: :cascade do |t|
-    t.string   "name"
     t.string   "address"
     t.string   "phone"
-    t.string   "size"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "image"
     t.integer  "user_id"
     t.string   "user_packnum"
     t.integer  "order_id"
+    t.decimal  "order_qty"
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -82,15 +80,14 @@ ActiveRecord::Schema.define(version: 20161224112049) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "order_packnum"
-    t.string   "order_size"
-    t.text     "order_description"
     t.integer  "order_qty"
-    t.decimal  "amount"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "product_id"
     t.integer  "order_status_id",   default: 1
+    t.integer  "subcription_id"
+    t.text     "order_description"
+    t.string   "order_size"
   end
 
   create_table "pickups", force: :cascade do |t|
@@ -157,9 +154,10 @@ ActiveRecord::Schema.define(version: 20161224112049) do
     t.date     "day"
     t.integer  "slot_id"
     t.integer  "delivery_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "window"
+    t.integer  "subscription_id"
   end
 
   create_table "slots", force: :cascade do |t|

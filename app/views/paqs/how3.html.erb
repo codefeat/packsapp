@@ -4,7 +4,7 @@
                   <div class="box">             
                     <div class="icon">
                       <div class="image"><i class="glyphicon glyphicon-shopping-cart glyph-lrg-cntr"></i></div>
-                      <div class="info-form">
+                      <div class="info-form" >
                               <form class="form-inline">
                                       <div class="form-group">
                                         <br /><label for="exampleInputName2">Full Name</label>
@@ -24,15 +24,45 @@
                                         <input type="text" class="form-control input-sm" id="exampleInputName2" placeholder="Minneapolis" style="width: 70%!important; float: right !important;">
                                       </div>
                                       <div class="form-group">
-                                        <label for="exampleInputName2">MN</label>
+                                        <label for="exampleInputName2">State</label>
                                         <input type="text" class="form-control input-sm" id="exampleInputName2" placeholder="MN" style="width: 70%!important; float: right !important;">
                                       </div>
                                       <div class="form-group">
-                                        <label for="exampleInputName2">55406</label>
+                                        <label for="exampleInputName2">Zip</label>
                                         <input type="text" class="form-control input-sm" id="exampleInputName2" placeholder="55406" style="width: 70%!important; float: right !important;">
                                       </div>
                                   </form>
                           </div>
+                          <div id="dtFormBkg">
+                                  <form class="form-inline deskTopForm" style="display: none;">
+                                         
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">Full Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder='<%=current_user.first_name %> <%= current_user.last_name %>'>
+                                      </div>
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">Address1</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="3601 25th Ave S." >
+                                      </div>
+                                    <% @myaddr = current_user.packs_num %>
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">Address2</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder='NextPakk #<%= @myaddr %>' >
+                                      </div>
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">City</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Minneapolis" >
+                                      </div>
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">State</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="MN" >
+                                      </div>
+                                      <div class="form-group" style="width: 120%">
+                                        <label for="exampleInputName2">Zip</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="55406">
+                                      </div>
+                                    </form>
+                            </div>
                         </div>
                         <div class="space"></div>
                       </div> 
