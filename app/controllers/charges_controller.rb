@@ -26,23 +26,21 @@ def create
  
     # Create the customer in Stripe
     
-    if @thisplan  = 1
-      amount = params[:stripeAmount].to_i * 100 + 100
-      customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      card: params[:stripeToken],
-      
-      
-    )
+    if @thisplan  == 1
+        amount = params[:stripeAmount].to_i * 100 + 100
+        customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        card: params[:stripeToken],
+      )
     else
-      amount = params[:stripeAmount].to_i * 100 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      card: params[:stripeToken],
-      
-      plan: params[:planSku]
-    )
-  end
+        amount = params[:stripeAmount].to_i * 100 
+        customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        card: params[:stripeToken],
+        
+        plan: params[:planSku]
+      )
+    end
   #raise "foo"
     # # Create the charge using the customer data returned by Stripe API
     # charge = Stripe::Charge.create(
