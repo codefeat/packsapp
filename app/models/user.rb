@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   mount_uploader :image, ImageUploader	
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
          has_many :reviews, dependent:  :destroy
          has_many :roles
@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
     end
 
          validates :first_name, :last_name, presence: true
-
+  # private
+  #   def confirmation_token
+  #     if self.confirm_token.blank?
+  #         self.confirm_token = SecureRandom.urlsafe_base64.to_s
+  #     end
+  #   end
    
 end
