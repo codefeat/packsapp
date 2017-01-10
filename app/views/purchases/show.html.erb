@@ -28,23 +28,26 @@
 
                           <table class="table">
                           	<th>Item</th>
+                            <th>Qty</th>
+                            <th>Amount</th>
                           	
                           	
                           	<tr>
-                          		<td><%= @plan.plan_name %> Delivery</td>
+                          		<td>
+                              <%= @plan.plan_name %> Delivery<br />
+                              <%= @plan.plan_info %><br />
+                              <%= @plan.plan_descrip %>
+                              </td>
+                              <td></td>
+                              <td></td>
                             </tr>
-                          	<tr>
-                            <td><%= @plan.plan_info %></td>
-                          	</tr>
-                          	<tr>
-                          		<td><%= @plan.plan_descrip %></td>
-                          	</tr>
-                          	<tr class="pull-right">
-                          		<td >1</td>
-                          	</tr>
-                            <tr class="pull-right">
-                              <td >Qty =</td>
+                          	
+                            <tr>
+                              <td></td>
+                              <td ><%= @purchase.order_qty %></td>
+                              <td >$<%= @purchase.amount / 100 %>.00</td>
                             </tr>
+                          	
 
                           </table>
 

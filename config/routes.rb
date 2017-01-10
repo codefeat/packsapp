@@ -66,6 +66,8 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
+  get 'orders/:oid/deliveries' => 'deliveries#new'
+
   #match 'users/:id' => 'users#show', via: :get
 
   get 'users/:id' => 'users#show'

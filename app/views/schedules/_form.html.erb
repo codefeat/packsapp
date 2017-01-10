@@ -27,9 +27,9 @@
     </div>
     <% if Delivery.exists?(user_id: current_user.id) %>
         <% for delivery in @deliveries %>
-          <%= @myDelivery = delivery.id %>
+          <% @myDelivery = delivery.id %>
           
-          <%= @myOrderQty = delivery.order_qty %>
+          <% @myOrderQty = delivery.order_qty %>
            
          
         <% end %>
@@ -41,9 +41,9 @@
           @myPlan = subscription.plan_id
           %> 
         <% end %>
-      <% end %><br />
+      <% end %>
 
-      <%  @mySub %><br />
+      <%  @mySub %>
       <% @myPlan %>
       <%= f.hidden_field :delivery_id, value: @myDelivery %>
       <%= f.hidden_field :subscription_id, value: @mySub %>

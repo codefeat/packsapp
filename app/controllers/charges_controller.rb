@@ -26,7 +26,7 @@ def create
  
     # Create the customer in Stripe
     
-    if @thisplan  == 1
+    if @thisplan  = 1
         amount = params[:stripeAmount].to_i * 100 + 100
         customer = Stripe::Customer.create(
         email: params[:stripeEmail],
@@ -55,7 +55,7 @@ def create
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
       :amount], 
-    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid)
+    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty])
   
     redirect_to purchase
 

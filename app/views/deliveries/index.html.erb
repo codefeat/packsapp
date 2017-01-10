@@ -77,10 +77,11 @@
                               <td><h4><%= current_user.packs_num %></h4></td>
                               <td><h4><%= order.order_description %></h4></td>
                               <td><h4><%= order.order_size %></h4></td>
-                               <% if !Delivery.exists?(order_id: order.id) %>
-                                    <% for delivery in @deliveries %>
-                                     <td><%= link_to "Schedule Delivery", new_delivery_path, class: "btn btn-default btn-xs" %></td> 
-                                    <% end %>
+                               <% @oid = order.id %>
+                               <% if !Delivery.exists?(order_id: order.id) && Order.find(order.id) %>
+                                    
+                                     <td><%= link_to "Schedule Delivery", "orders/#{@oid}/deliveries", class: "btn btn-default btn-xs" %></td> 
+                                   
                                 <% else %>
                                
                                        <td>
