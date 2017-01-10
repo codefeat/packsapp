@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: "registrations" }
+  #devise_for :users, controllers: { confirmations: 'confirmations' }
   resources :deliveries do
     resources :reviews, except: [:show, :index]
 
@@ -63,6 +64,8 @@ Rails.application.routes.draw do
  
   get 'pages/about'
 
+  get 'orders/:oid/deliveries' => 'deliveries#new'
+
   get 'pages/contact'
 
   #match 'users/:id' => 'users#show', via: :get
@@ -70,6 +73,12 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
 
   resources :users, only: [:show]
+
+  # resources :users, only: [:show] do
+  #   member do 
+  #     get :confirm_mail
+  #   end
+  # end
 
   #get 'orders#index'
 

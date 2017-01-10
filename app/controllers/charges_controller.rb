@@ -23,10 +23,10 @@ def create
 
     @thisplan = params[:subscriptionPlanId]
    
- 
+    
     # Create the customer in Stripe
     
-    if @thisplan  == 1
+    if @thisplan = 1
       amount = params[:stripeAmount].to_i * 100 + 100
       customer = Stripe::Customer.create(
       email: params[:stripeEmail],
