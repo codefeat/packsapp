@@ -32,7 +32,7 @@
                     <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
                     <script type="text/javascript">
                       var handler = StripeCheckout.configure({
-                        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                        key: 'pk_test_87LayhWLhTKpfeY88G6tdHAb',
                         token: function(token, arg) {
                           document.getElementById("stripeToken").value = token.id;
                           document.getElementById("stripeEmail").value = token.email;
