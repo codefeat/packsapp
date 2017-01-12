@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
 
-	@user = current_user
+	
 
 	def show
 		@purchase = Purchase.find_by_uuid(params[:id])
