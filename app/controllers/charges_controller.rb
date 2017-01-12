@@ -12,6 +12,9 @@ def create
   @user = current_user
   @subscriptions = Subscription.all
   @plan = Plan.find(@subscription.plan_id)
+
+  @user_email = @user.email
+  @user_fname = current_user.first_name
   
   #@plan = Plan.find_by id: params[:subscription][:plan_id]
   #@subscription = current_user.subscriptions.find(params[:id])
@@ -50,8 +53,8 @@ def create
     #   description: 'NextPakk customer',
     #   currency: 'usd'
     # )
- 
- 
+    PurchaseMailer.purchase_receipt(@user).deliver
+    
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
       :amount], 

@@ -3,7 +3,8 @@ class PurchaseMailer < ActionMailer::Base
 	default from: "NextPakk Delivery"
 
 	def purchase_receipt purchase
+		#@user = current_user
 		@purchase = purchase
-		mail(:to => "#{user.first_name} <#{user.email}>", subject: "Thank you for using NextPakk.")
+		mail(:to => "#{@user_fname} <#{@user_email}>", subject: "Thank you for using NextPakk.")
 	end
 end
