@@ -53,8 +53,6 @@ def create
     #   description: 'NextPakk customer',
     #   currency: 'usd'
     # )
-    PurchaseMailer.purchase_receipt(@user).deliver
-    
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
       :amount], 
