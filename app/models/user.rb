@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-attr_accessor :first_name, :email
+#attr_accessor :first_name, :email
 
   mount_uploader :image, ImageUploader	
   # Include default devise modules. Others available are:
