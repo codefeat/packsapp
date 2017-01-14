@@ -1,10 +1,17 @@
-class PurchaseMailer < ActionMailer::Base
-	layout 'purchase_mailer'
-	default from: "NextPakk Delivery"
+class PurchaseMailer < ApplicationMailer
 
-	def purchase_receipt purchase
-		#@user = current_user
-		@purchase = purchase
-		mail(:to => "#{@user_fname} <#{@user_email}>", subject: "Thank you for using NextPakk.")
-	end
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.purchase_mailer.new_purchase.subject
+  #
+  def new_purchase(purchase)
+
+  	#@user = current_user
+    @purchase = Purchase.last
+    @plan = @purchase.product_id
+
+
+    mail(:to => "#{@purchase.email}", subject: "Thank you for using NextPakk.")
+  end
 end

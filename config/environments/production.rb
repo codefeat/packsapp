@@ -77,6 +77,21 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port       => '587',
+    :authentication => :plain,
+    :user_name    => ENV['SENDGRID_USERNAME'],
+    :password   => ENV['SENDGRID_PASSWORD'],
+    :domain     => 'heroku.com',
+    :enable_startstls_auto => true
+  }
+
+    config.action_mailer.default_url_options = { host: 'nextpakk.com', port: 3000 }
+
+
   # Required for Devise. Rember to change localhost:300 to actual application host.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

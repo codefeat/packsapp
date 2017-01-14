@@ -11,13 +11,22 @@ class MyMailer < Devise::Mailer
 	  super
 	end
 
-	def purchase_receipt purchase
+	def purchase_receipt(purchase)
 		render layout: 'purchase_mailer'
-	    
+	    #@from = "delivery@gonextpakk.com"
 		#@user = current_user
 		@purchase = purchase
-		mail(:to => "#{@user_fname} <#{@user_email}>", subject: "Thank you for using NextPakk.")
+		mail(:to => "#{@user_fname} <#{@user_email}>", from: "delivery@gonextpakk.com", subject: "Thank you for using NextPakk.")
 	end
+
+	def new_purchase(purchase)
+  	#@user = current_user
+    @purchase = purchase
+    @plan = @purchase.plan
+
+
+    mail(:to => "#{purchase.email}", from: "delivery@gonextpakk.com", subject: "Thank you for using NextPakk.")
+  end
 
 
 

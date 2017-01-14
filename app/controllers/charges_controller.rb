@@ -58,6 +58,8 @@ def create
       :amount], 
     description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty])
   
+    PurchaseMailer.new_purchase(@purchase).deliver_now
+
     redirect_to purchase
 
   rescue Stripe::CardError => e

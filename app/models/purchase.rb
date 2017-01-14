@@ -5,6 +5,8 @@ class Purchase < ActiveRecord::Base
     end
 
     def email_purchaser
-    	MyMailer.purchase_receipt(self).deliver
+    	MyMailer.new_purchase(self).deliver_now
     end
+
+    belongs_to :plan
 end
