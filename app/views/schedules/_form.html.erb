@@ -30,6 +30,8 @@
           <% @myDelivery = delivery.id %>
           
           <% @myOrderQty = delivery.order_qty %>
+
+          <% @myOrderNum = delivery.order_id %>
            
          
         <% end %>
@@ -49,6 +51,7 @@
       <%= f.hidden_field :subscription_id, value: @mySub %>
       <%= f.hidden_field :plan_id, value: @myPlan %>
       <%= f.hidden_field  "ordQty", value: @myOrderQty %>
+      <%= f.hidden_field :orderNum, value: @myOrderNum %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

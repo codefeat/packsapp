@@ -12,7 +12,7 @@ class DeliveriesController < ApplicationController
     @deliveries = Delivery.all
     @orders = Order.all
     @products = Product.all
-    @order = @user.orders.all if @user
+    @order = @user.orders.all.reverse if @user
     @subscriptions = Subscription.where(user_id: @user)
     #@delivery = current_user.deliveries.find(params[:order_id])
     #@order = current_user.orders.find(params[:id])

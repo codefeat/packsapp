@@ -41,7 +41,7 @@ def create
       if @schedule.save
         @getDelivery = Delivery.find(params[:schedule][:delivery_id])
         #        format.html { redirect_to schedule_subscription_path(@schedule, params[:schedule][:subscription_id]), notice: 'schedule was successfully created.' }
-        format.html { redirect_to url_for(:controller => 'subscriptions', :action => 'pay', :id => params[:schedule][:subscription_id], :oid => params[:schedule][:delivery_id])  }
+        format.html { redirect_to url_for(:controller => 'subscriptions', :action => 'pay', :id => params[:schedule][:subscription_id], :did => params[:schedule][:delivery_id], :oid => params[:schedule][:orderNum])  }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }

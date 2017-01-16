@@ -1,4 +1,15 @@
 class ChargesController < ApplicationController
+
+  before_action :check_purchase, only: [:create]
+
+def check_purchase
+      if Purchase.exists?(order_num: params[:orderNum])
+        respond_to do |format| 
+        format.html { redirect_to root_path, notice: 'Whoops! This order has already been purchased.' }
+        end
+      end
+end
+
 def new
   @schedule = @user.schedules.all if @user
   @schedules = Schedule.all
@@ -56,7 +67,7 @@ def create
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
       :amount], 
-    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty])
+    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty], order_num: params[:orderNum])
   
     PurchaseMailer.new_purchase(@purchase).deliver_now
 

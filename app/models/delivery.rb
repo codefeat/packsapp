@@ -7,7 +7,7 @@ class Delivery < ActiveRecord::Base
 	has_many :reviews
 	belongs_to :user
 	belongs_to :schedule
-	belongs_to :order
+	belongs_to :order 
 	#has_one :day
 	#has_one :slot
 	#has_one :appointment

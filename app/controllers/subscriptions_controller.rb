@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-
+  #before_action :check_purchase, only: [:pay]
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -24,12 +24,14 @@ class SubscriptionsController < ApplicationController
     @user = current_user
     @subscriptions = Subscription.all
     @thisDelivery = @getDelivery
-    @delivery = Delivery.find(params[:oid])
+    @delivery = Delivery.find(params[:did])
     @subscription = current_user.subscriptions.find(params[:id])
     @plans = Plan.all
     @order = Order.find(@delivery.order_id)
+    #@schedule = Schedule.find(delivery_id: params[:oid])
     #@plan = Plan.find_by_sku("npcstpln")
     #@plan = @subscription.plan.find(params[:plan_id])
+   
   end
 
   # GET /subscriptions/new
@@ -91,5 +93,13 @@ class SubscriptionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
       params.require(:subscription).permit(:user_id, :plan_id, :sku)
+    end
+
+    def check_purchase
+      if Purchase.exists?(order_num: params[:oid])
+        respond_to do |format| 
+        format.html { redirect_to root_path, notice: 'Whoops! This order has already been purchased.' }
+        end
+      end
     end
 end

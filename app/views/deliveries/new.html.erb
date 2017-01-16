@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -20,9 +20,9 @@
     <br />
           <h1>New Delivery</h1>
 
-<%= render 'form' %>
+<%= render 'form' %><br />
 
-<%= link_to 'Back', deliveries_path, class: "btn btn-link" %>
+<%= link_to 'Back', deliveries_path, class: "btn btn-default btn-xs pull-right" %>
 
     </section>
   </div>  

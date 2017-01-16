@@ -17,6 +17,7 @@
                         <span>Amount: $5.00</span>
                       </label>
                     </article-->
+                    <% thisOrdrNum = @delivery.order_id %>
                     <% thisQty = @order.order_qty %>
                     <% myFee = @subscription.plan.price_in_cents + thisQty * 100 %>
                     
@@ -29,6 +30,7 @@
                     <%= hidden_field_tag 'planDescrip', @subscription.plan.plan_descrip %>
                     <%= hidden_field_tag 'pkgFee', myFee %>
                     <%= hidden_field_tag 'ordrQty', thisQty %>
+                    <%= hidden_field_tag 'orderNum', thisOrdrNum %>
                     <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
                     <script type="text/javascript">
                       var handler = StripeCheckout.configure({
