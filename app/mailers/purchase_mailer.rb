@@ -22,4 +22,5 @@ class PurchaseMailer < ApplicationMailer
   	@user = User.find(@order.user_id)
 
   	mail(:to => "#{@user.email}", subject: "New NextPakk Delivery Ready for Scheduling.")
+  end
 end
