@@ -1,6 +1,13 @@
 class SchedulesController < InheritedResources::Base
 
+def index
 
+
+  @user = current_user
+  @schedules = Schedule.all.reverse if @user
+  #@schedules = @schedules.day.order("by DESC").limit(10)
+  #@schedule = @user.schedules if @user
+end
 
 def new
   @user = current_user

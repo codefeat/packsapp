@@ -1,7 +1,17 @@
 Thank You for Your Order
 
-<%= 'Please click on the purchase link to login and view your order details.' %>
+<% @newOrder = Purchase.last %>
 
+Order Summary
+
+
+AMOUNT: <%= @newOrder.amount%>
+DESCRIPTION: <%= @newOrder.description%>
+QTY: <%= @newOrder.order_qty %><
+
+
+<%= "Click on the purchase link to login for more details." %>
 
 <%= link_to "purchase", "http://www.nextpack.delivery" %>
+
 

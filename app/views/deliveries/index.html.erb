@@ -65,9 +65,14 @@
                                 <td><span><%= link_to "Update Delivery", schedules_path, class: "btn btn-default btn-xs" %></span></td> 
                               <% end %>
                               </tr>
-                              <tr></tr>
+                              <tr>
+                              <th>NextPack #<%= current_user.packs_num %></th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                              </tr>
                                   <tr><h2 style="text-align: center;">New Order Available For Delivery</h2></tr>
-                                    <th>NextPack #</th>
+                                    <th></th>
                                     <th>Description</th>
                                     <th>Size</th>
                                     <th>Schedule</th>
@@ -86,7 +91,7 @@
                             <% for order in @order %>
 
                               <tr>
-                              <td><h4><%= current_user.packs_num %></h4></td>
+                              <td></td>
                               <td><h4><%= order.order_description %></h4></td>
                               <td><h4><%= order.order_size %></h4></td>
                                <% @oid = order.id %>

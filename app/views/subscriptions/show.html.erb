@@ -49,14 +49,19 @@
                             
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-sm btn-primary" type="button"
+                    
+                      <div class="panel-footer">
+                        <button class="btn btn-sm btn-default" type="button"
                                 data-toggle="tooltip"
-                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
+                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker" style="display: none;"></i></button>
                         <span class="pull-right">
-                            
+                            <%= link_to edit_subscription_path(@subscription), class: "btn btn-sm btn-warning"  do %> 
+                            <i class="glyphicon glyphicon-edit" style="color: white !important;"></i>
+                            <% end %>
                            
-                                    
+                                    <%= link_to subscriptions_path, class: "btn btn-sm btn-warning"  do %>
+                                    <i class="glyphicon glyphicon-arrow-left" style="color: white !important;"></i>
+                                    <% end %>
                         </span>
                     </div>
                 </div>

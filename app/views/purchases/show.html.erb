@@ -7,8 +7,8 @@
                       <div class="info-form">
                       <br /> <br />
                       <h3 style="color: white !important;">NextPakk</h3>
-                      <h1 style="color: white !important;">Thank You!</h1>
-                      <h3 style="color: white !important;">You will be notified when you package is out for delivery.</h3>
+                      <h1 style="color: white !important;">Thank You <%= @user.first_name %>! </h1>
+                      <h3 style="color: white !important;">You will be notified when you package is out for delivery on <%= @schedule.day.strftime("%B %d, %Y") %>.</h3>
                               
                           </div>
                         </div>
@@ -46,6 +46,15 @@
                               <td></td>
                               <td ><%= @purchase.order_qty %></td>
                               <td >$<%= @purchase.amount / 100 %>.00</td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <strong>Deliver To:</strong><br />
+                            <%= @delivery.address %>
+                              
+                            </td>
+                            <td></td>
+                            <td></td>
                             </tr>
                           	
 

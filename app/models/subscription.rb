@@ -2,6 +2,7 @@ class Subscription < ActiveRecord::Base
 	belongs_to :plan
 	belongs_to :user
 	belongs_to :order
+	belongs_to :purchase
 
 
 	has_many :schedule

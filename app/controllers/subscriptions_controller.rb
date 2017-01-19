@@ -28,6 +28,7 @@ class SubscriptionsController < ApplicationController
     @subscription = current_user.subscriptions.find(params[:id])
     @plans = Plan.all
     @order = Order.find(@delivery.order_id)
+    @purchase = Purchase.find_by_subscription_id(@subscription)
     #@schedule = Schedule.find(delivery_id: params[:oid])
     #@plan = Plan.find_by_sku("npcstpln")
     #@plan = @subscription.plan.find(params[:plan_id])

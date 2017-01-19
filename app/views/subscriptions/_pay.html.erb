@@ -19,7 +19,12 @@
                     </article-->
                     <% thisOrdrNum = @delivery.order_id %>
                     <% thisQty = @order.order_qty %>
-                    <% myFee = @subscription.plan.price_in_cents + thisQty * 100 %>
+                    <% thisSubscription = @subscription.id %>
+                    <% if thisSubscription = 1 %>
+                      <% myFee = @subscription.plan.price_in_cents + thisQty * 100 %>
+                      <% else %>
+                      <% myFee = @subscription.plan.price_in_cents  %>
+                    <% end %>
                     
                     <script src="https://checkout.stripe.com/checkout.js"></script>
                     <%= hidden_field_tag 'stripeToken' %>
@@ -31,7 +36,18 @@
                     <%= hidden_field_tag 'pkgFee', myFee %>
                     <%= hidden_field_tag 'ordrQty', thisQty %>
                     <%= hidden_field_tag 'orderNum', thisOrdrNum %>
-                    <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
+                    <%= hidden_field_tag 'subsId', thisSubscription %>
+                    
+                    <% if thisSubscription = 1 %>
+                      <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Pay</button>
+                    <% end %>
+                    <% if thisSubscription > 1 && Purchase.exists?(subscription_id: thisSubscription) %>
+                      <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Next</button>
+                    <% end %>
+                    <% if thisSubscription > 1 && !Purchase.exists?(subscription_id: thisSubscription) %>
+                      <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Subscribe</button>
+                    <% end %>
+
                     <script type="text/javascript">
                       var handler = StripeCheckout.configure({
                         key: 'pk_test_87LayhWLhTKpfeY88G6tdHAb',

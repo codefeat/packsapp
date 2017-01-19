@@ -9,4 +9,5 @@ class Purchase < ActiveRecord::Base
     end
 
     belongs_to :plan
+    has_many :subscriptions
 end

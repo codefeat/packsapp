@@ -10,8 +10,16 @@ class PurchaseMailer < ApplicationMailer
   	#@user = current_user
     @purchase = Purchase.last
     @plan = @purchase.product_id
+    @thisAdmin = "delivery@gonextpakk.com"
 
 
-    mail(:to => "#{@purchase.email}", subject: "Thank you for using NextPakk.")
+    mail(:to => "#{@thisAdmin}", subject: "New NextPakk Purchase.")
   end
+
+
+  def new_order(order)
+  	@order = Order.last
+  	@user = User.find(@order.user_id)
+
+  	mail(:to => "#{@user.email}", subject: "New NextPakk Delivery Ready for Scheduling.")
 end

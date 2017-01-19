@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  #before_create :confirmation_token
 #attr_accessor :first_name, :email
 
   mount_uploader :image, ImageUploader	
@@ -30,11 +31,11 @@ class User < ActiveRecord::Base
     end
 
          validates :first_name, :last_name, presence: true
-  # private
-  #   def confirmation_token
-  #     if self.confirm_token.blank?
-  #         self.confirm_token = SecureRandom.urlsafe_base64.to_s
-  #     end
-  #   end
+  private
+    def set_confirmation_token
+      if self.confirm_token.blank?
+          self.confirm_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
    
 end

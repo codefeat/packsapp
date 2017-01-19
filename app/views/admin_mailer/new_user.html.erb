@@ -1,0 +1,19 @@
+<h1>New NextPakk User </h1>
+
+<blockquote>
+<% @newUser = Order.last %>
+
+<h2>User Details</h2>
+
+ID: <%= @newUser.id%><br />
+EMAIL: <%= @newUser.email %><br />
+NAME: <%= @newUser.first_name%> <%= @newUser.last_name%><br />
+NEXTPAKK#: <%= @newUser.packs_sum %><br />
+
+
+<%= "User Details." %><h4><a href="http://www.nextpack.delivery">gonextpakk.com</a></h4>
+</blockquote>
+
+<div >
+
+</div>

@@ -1,6 +1,20 @@
-<p>Thank You for Your Order</p>
+<h1>New NextPakk Purchase </h1>
 
-<blockquote><%= "Please click on the order to login and view your order details." %><h4><a href="http://www.nextpack.delivery">order</a></h4></blockquote>
+<blockquote>
+<% @newOrder = Purchase.last %>
+
+<h2>Order Details</h2>
+
+ID: <%= @newOrder.id%><br />
+EMAIL: <%= @newOrder.email %><br />
+AMOUNT: <%= @newOrder.amount%><br />
+DESCRIPTION: <%= @newOrder.description%><br />
+QTY: <%= @newOrder.order_qty %><br />
+ORDER NUM: <%= @newOrder.order_num %>
+
+
+<%= "Order Details." %><h4><a href="http://www.nextpack.delivery">gonextpakk.com</a></h4>
+</blockquote>
 
 <div >
 

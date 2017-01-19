@@ -1,0 +1,19 @@
+<h1>New NextPakk Delivery </h1>
+
+<blockquote>
+<% @newOrder = Order.last %>
+
+<h2>Pre-Delivery Details</h2>
+
+ID: <%= @newOrder.id%><br />
+Qty: <%= @newOrder.order_qty %><br />
+DESCRIPTION: <%= @newOrder.description%><br />
+SIZE: <%= @newOrder.order_size %><br />
+
+
+<%= "Order Details." %><h4><a href="http://www.nextpack.delivery">gonextpakk.com</a></h4>
+</blockquote>
+
+<div >
+
+</div>

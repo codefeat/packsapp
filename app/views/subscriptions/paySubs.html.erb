@@ -22,7 +22,21 @@
   <div id="wrapper">
        <div id="page-wrapper">
           <div class="container-fluid" style="width: 80%; margin: 0 auto !important;">
+                <% 
+                    pid = @subscription.plan_id 
+                    a = 1
+                    b = 3
+                    %>
+                    <% if pid.present? && pid > a %>
+                    <h2></h2><br />
+                      <h2 style="text-align: center;">Thank you for your subscripton!</h2>
+                      <br />
+                      <%= link_to "Exit", subscription_path, class: "btn btn-success pull-right", style: "color: white !important;" %>
+                      
+                    <% else %>
+                     
                       <%= render 'pay' %>
+                    <% end %>
                       <!-- /.container-fluid -->
                   </div>     
         </div><!-- /#page-wrapper -->

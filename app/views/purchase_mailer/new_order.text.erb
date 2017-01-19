@@ -1,0 +1,13 @@
+New NextPakk Delivery
+
+<% @newOrder = Order.last %>
+
+Pre-Delivery Details
+
+ID: <%= @newOrder.id%>
+Qty: <%= @newOrder.order_qty %>
+DESCRIPTION: <%= @newOrder.description%><
+SIZE: <%= @newOrder.order_size %>
+
+
+<%= link_to "gonextpakk", "http://www.nextpack.delivery" %>

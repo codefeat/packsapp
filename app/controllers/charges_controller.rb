@@ -67,7 +67,7 @@ def create
     # place more code upon successfully creating the charge
     purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], amount: params[
       :amount], 
-    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty], order_num: params[:orderNum])
+    description: params[:planDescrip], currency: "usd", customer_id: customer.id, product_id: @thisplan, uuid: SecureRandom.uuid, order_qty: params[:ordrQty], order_num: params[:orderNum], subscription_id: params[:subsId])
   
     PurchaseMailer.new_purchase(@purchase).deliver_now
 
