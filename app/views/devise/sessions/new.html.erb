@@ -1,14 +1,14 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <%= render 'layouts/logo' %>
-          <%= render 'layouts/user_nav' %>
+          <% render 'layouts/logo' %>
+          <% render 'layouts/user_nav' %>
       </div>      
   </nav>
-  <%= render 'layouts/user_side_nav' %>
+  <% render 'layouts/user_side_nav' %>
   
   <!--Body content-->
-  <div class="content">
+  <div class="content" style="display: none;">
     <div class="top-bar" style="background: whitesmoke !important;">       
       <a href="#menu" class="side-menu-link burger"> 
         <span class='burger_inside' id='bgrOne'></span>
@@ -50,8 +50,65 @@
             </div>
     </section>
   </div>  
+
+  <div class="container">
+  
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <section class="login-form">
+      <div class="myLogo center-block" style=" margin: 0 auto; height: 10px;">
+      <a class="navbar-brand" href="/" style="text-align: center;"><%= image_tag "https://s3.amazonaws.com/nextpakkweb/nextpakk-logo-2017-hroz-blue-2.png", class: "img-responsive", style: "width: 125px; margin-top: -20px;" %> </a>
+        
+
+      </div><br /><br /><br />
+
+         <div class="login-panel" role="login">
+                    <div class="panel-body">
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                          <div class="form-group">
+                            <%= f.label :email %>
+                            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                          </div>
+
+                          <div class="form-group">
+                            <%= f.label :password %>
+                            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                          </div>
+
+                          <% if devise_mapping.rememberable? -%>
+                            <div class="form-group">
+                              <%= f.check_box :remember_me %>
+                              <%= f.label :remember_me %>
+                            </div>
+                          <% end -%>
+
+                          <div class="form-group">
+                            <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block np-btn" %>
+                          </div>
+                        <% end %>
+                        <%= render "devise/shared/links" %>
+                </div>
+            </div>
+
+
+
+      </section>  
+      </div>
+      
+      <div class="col-md-4"></div>
+      
+
+  </div>
+  
+  
   
 </div>
+  
+</div>
+
+
 
 
 

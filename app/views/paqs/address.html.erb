@@ -23,10 +23,12 @@
                 
                       <h2 style="color: orange !important;">Your NextPakk Address</h2>
                       <p>
+                      <% @del = DeliveryPoint.all %>
+
                       <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><br />
-                      3601 25th Ave S.<br />
+                      3601 25th Ave S. <%= @delPoint.biz_street %> <br />
                       NextPakk #<%= current_user.packs_num %><br />
-                      Minneapolis, MN 555406  
+                      Minneapolis @delPoint.biz_city, MN @delPoint.biz_state 555406 @delPoint.biz_zip
                       </p>
 
                 

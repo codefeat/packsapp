@@ -1,6 +1,7 @@
 class PaqsController < ApplicationController
   before_action :authenticate_user!, except: [:step1]
   def address
+    @delPoint = DeliveryPoint.find_by_biz_zip("55406")
   end
   
   def deliver
