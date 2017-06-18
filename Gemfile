@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.2.4'
 gem 'rails', '4.2.5.1'
@@ -42,3 +42,4 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'letter_opener', group: :development
 gem 'seed_dump'
+gem 'rake', '~> 11.3'
