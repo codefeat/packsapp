@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
          has_many :subscriptions
          has_many :plans
 
-         validates :first_name, :last_name, presence: true
+         validates :first_name, :last_name, :zip_code, presence: true
 
          # User Avatar Validation
   validates_integrity_of  :image
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
       errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
     end
 
-         validates :first_name, :last_name, presence: true
+         validates :first_name, :last_name, :zip_code, presence: true
   private
     def set_confirmation_token
       if self.confirm_token.blank?

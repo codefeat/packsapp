@@ -13,8 +13,10 @@ respond_to :html, :json
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:zip_code])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:zip_code])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:image])
     devise_parameter_sanitizer.permit(:account_update, keys: [:image])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:packs_num])  
