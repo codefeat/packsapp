@@ -18,9 +18,12 @@ class User < ActiveRecord::Base
          validates :first_name, :last_name, :zip_code, presence: true
 
          # User Avatar Validation
-  validates_integrity_of  :image
-  validates_processing_of :image
+         validates_integrity_of  :image
+         validates_processing_of :image
 
+         #validates_format_of :zip, :with => /^\d{5}(-\d{4})?$/, :message => "should be in the form 12345 or 12345-1234"
+         validates :zip_code, format: { with: /\A\d{5}(-\d{4})?\z/, message: "should be in the form 12345 or 12345-1234" }
+  /\A\(\d{3}\) \d{3}-\d{4}\z/
    def display_name
     	return self.email
     end
