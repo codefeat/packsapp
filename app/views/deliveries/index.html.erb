@@ -9,7 +9,7 @@
   
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
+    <div class="top-bar" style="background: whitesmoke !important; display: none;">       
       <a href="#menu" class="side-menu-link burger"> 
         <span class='burger_inside' id='bgrOne'></span>
         <span class='burger_inside' id='bgrTwo'></span>
@@ -24,11 +24,11 @@
                   <div class="col-lg-12">
                     <div class="row">
                     <div style="background-color:transparent; height:100px">
-                      <div class="col-1g-1 tile-icon " style="height:100px; width:50%; float:left;"><a href="/" class="cust-block-icons" style="color: #b0b0b0 !important;">Delivery</a>
+                      <div class="col-1g-1 tile-icon " style="height:100px; width:50%; float:left; border-top: 5px solid;"><a href="/" class="cust-block-icons" style="color: #b0b0b0 !important;">Delivery</a>
                           
                         </div>
 
-                      <div class="col-1g-1 tile-icon " style="background-color:#0f0; height:100px; width:50%; float:left; border-left: 1px solid;">
+                      <div class="col-1g-1 tile-icon " style="background-color:#0f0; height:100px; width:50%; float:left; border-left: 0px solid;">
                           <a href="paqs/pickup" class="cust-block-icons">Pickup</a>
                         </div>
                       </div>
@@ -66,7 +66,7 @@
                               <% end %>
                               </tr>
                               <tr>
-                              <th>NextPack #<%= current_user.packs_num %></th>
+                              <th>Cust# <%= current_user.packs_num %></th>
                               <th></th>
                               <th></th>
                               <th></th>

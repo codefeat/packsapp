@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+          <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -9,24 +9,22 @@
   
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
+   
     <section class="content-inner">
     <br />
           <h1>Update Delivery</h1>
+            <table>
+              <tr>
+                <th colspan="5"><%= link_to "Back", root_path, class: "btn btn-default btn-xs" %></th>
+              </tr>
+            </table>
                   <table class="table table-hover table-condensed" style="width: 97% !important;">
                     
                       <tr>
                         <th>Day</th>
                         <th>Date</th>
                         <th>Window</th>
-                        <th></th>
-                        <th colspan="5"><%= link_to "Back", root_path, class: "btn btn-default btn-xs" %></th>
+                        <th colspan="5"></th>
                       </tr>
                    
 
@@ -37,9 +35,9 @@
                         <td><%= schedule.day.strftime("%A") %> </td>
                           <td> <%= schedule.day %></td>
                           <td><%= schedule.slot.window %></td>
-                          <td><%= link_to "Edit Address", edit_delivery_path(schedule.delivery_id) %></td>
+                          <td><%= link_to "Edit Address", edit_delivery_path(schedule.delivery_id), class: "btn btn-default btn-xs" %></td>
                           <td><% link_to 'Show', schedule %></td>
-                          <td><%= link_to 'Edit Date', edit_schedule_path(schedule) %></td>
+                          <td><%= link_to 'Edit Date', edit_schedule_path(schedule), class: "btn btn-default btn-xs" %></td>
                           <td><% link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         </tr>
                         <% i += 1 %>
