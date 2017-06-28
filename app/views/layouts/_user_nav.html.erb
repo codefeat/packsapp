@@ -4,7 +4,7 @@
                  <input type="text" class="form-control" placeholder="Search" />                        
                </form>
               <li class="dropdown movable">
-                  <a href="/users/edit" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " id="npPrfPic" style="max-width: 65px;  border: 3px solid #b0b0b0;" >
+                  <a href="/users/edit" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="text-center pull-right " id="npPrfPic" style="max-width: 65px;  border: 0px solid #b0b0b0;" >
                                           <% if current_user.image.present? %>
                                             <%= image_tag current_user.image, class: "img-responsive circle-avatar center-block" %>
                                             <% else %>

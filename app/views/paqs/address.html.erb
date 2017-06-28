@@ -9,27 +9,21 @@
   
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
+     
     <section class="content-inner">
-          <div class="add-custom-hdr" style="display: block !important; margin-top: -0px; width: 80% important;"><%= image_tag "https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png", class: "img-responsive" %> </div><br /><br />
-                       <br />
-                        <hr>
+    <br />
+                       
                 
-                      <h2 style="color: orange !important;">Your NextPakk Address</h2>
+                      <h2 style="color: #2388f9 !important;">Your NextPakk Address</h2>
                       <p>
                       <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><br />
                       3909 Minnehaha Ave<br />
                       NextPakk #<%= current_user.packs_num %><br />
                       Minneapolis, MN 55406  
                       </p>
-
-                
+          <div class="jumbotron" style="display: block !important; margin-top: -0px; width: 80% important;"><%= image_tag "https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png", class: "img-responsive" %> </div><br /><br />
+                       <br />
+                        <hr>
     </section>
   </div>  
   

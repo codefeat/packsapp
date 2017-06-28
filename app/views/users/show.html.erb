@@ -1,7 +1,7 @@
 <div class="wrap">
   <nav class="nav-bar navbar-default" role="navigation">
       <div id ="top-menu" class="container-fluid active">
-          <a class="navbar-brand" href="/">NextPakk</a>
+           <%= render 'layouts/logo' %>
           <%= render 'layouts/user_nav' %>
       </div>      
   </nav>
@@ -9,13 +9,6 @@
   
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
     <section class="content-inner">
     <br />
 
@@ -27,14 +20,14 @@
                         <div class="row">
                            
                             <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                                <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-user"></i></span>
+                                <span class="cust-block-icons" style="color: #2388f9 !important; font-size: 50px !important;"><i class="glyphicon glyphicon-user"></i></span>
                             </div>
                             <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
                                 
 
                                 <table class="table">
                                 <thead>
-                                  <th>
+                                  <th style="background: transparent !important; border-bottom: 0px solid !important;">
                                     Profile Details
                                   </th>
                                 </thead>
@@ -43,9 +36,9 @@
 	                                
                                 </tr>
                                 	<tr>
-                                		<td>Address:</td>
+                                		<td>NextPakk Address:</td>
                                 		<td>
-                                		3601 25th Ave S <br />
+                                		3909 Minnehaha Ave <br />
                                 		NextPakk #<%= @user.packs_num %><br />
                                 		Minneapolis, MN 55406
 

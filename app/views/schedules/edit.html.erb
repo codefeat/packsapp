@@ -8,25 +8,43 @@
   <%= render 'layouts/user_side_nav' %>
   
   <!--Body content-->
-  <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
-    <section class="content-inner" style="width: 97% !important;">
+<div class="content">
+    
+    <section class="content-inner">
     <br />
-    <h1>Edit Scheduled Delivery</h1>
-        <%= render 'form' %>
+
+             <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: white !important;">Edit Scheduled Delivery</h3>
+                    </div>
+                    <div class="panel-body" style="background: white !important; font-size: 14px !important;">
+                        <div class="row">
+                           
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                <span class="cust-block-icons" style="color: orange !important; font-size: 50px !important;"><i class="glyphicon glyphicon-user"></i></span>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+                   <%= render 'form' %>
 
         <%= link_to 'Show', @schedule %> |
         <%= link_to 'Back', schedules_path %>
+                            </div>                            
+                        </div>
+                    </div>
+
+                      <div class="panel-footer">
+                        <button class="btn btn-sm btn-primary" type="button"
+                                data-toggle="tooltip"
+                                data-original-title="Send message to user"><i class="glyphicon glyphicon-map-marker"></i></button>
+                        <span class="pull-right">
+                            
+                           
+                                    
+                        </span>
+                    </div>
+                </div>
     </section>
   </div>  
-  
-</div>
 
 
 

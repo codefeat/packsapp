@@ -82,7 +82,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
 }
 
 
@@ -208,7 +208,7 @@ body {
 /* end   */
  .cust-block-icons a:link {
 
- color: orange !important;
+ color: #ffd700 !important;
 
  }
 
@@ -340,7 +340,7 @@ body {
 
 
 .jumbotron {
-background-image: url("https://s3.amazonaws.com/nextpakk/Delivery-man-makes-his-rounds.jpg");
+background-image: url("https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png");
 background-size: cover;}
 
 .nav-tabs>li>a {
@@ -678,7 +678,7 @@ a:active a:visited {
     }
 
     body {
-        background: whitesmoke !important;
+        background: white !important;
     }
 
     .step1 {
@@ -727,7 +727,7 @@ a:active a:visited {
     }
 
     .tile-icon-container {
-        background-color:orange !important; 
+        background-color:#2388f9 !important; 
         height:300px;
     }
 
@@ -790,7 +790,7 @@ a:active a:visited {
 
     #npPrfPic {
       max-width: 65px;  
-      border: 3px solid #b0b0b0;
+      border: 0px solid #b0b0b0;
       margin-top: -20px !important;
     }
 
@@ -925,7 +925,7 @@ a:active a:visited {
   /* end   */
    .cust-block-icons a:link {
 
-   color: orange !important;
+   color: #ffd700 !important;
 
    }
 
@@ -953,7 +953,7 @@ a:active a:visited {
       font-size: 40px;
       line-height: 100px;
       background-color:transparent !important;
-      color:orange;
+      color:#2388f9;
       width: 33%;
       height: 100px;
       text-align: center;
@@ -986,7 +986,7 @@ a:active a:visited {
 
 
   .jumbotron {
-      background-color: #f9ab23 !important;
+      background-color: #ffffff !important;
       border: 1px solid #0069ff;  
 
       h1{
@@ -1057,7 +1057,7 @@ a:active a:visited {
 
 
   .jumbotron {
-  background-image: url("https://s3.amazonaws.com/nextpakk/Delivery-man-makes-his-rounds.jpg");
+  background-image: url("https://s3.amazonaws.com/nextpakkweb/app-header-image-web-app-1200-transp.png");
   background-size: cover;}
 
   .nav-tabs>li>a {
@@ -1101,7 +1101,7 @@ a:active a:visited {
   }
 
   .container-fluid {
-      background: transparent !important;
+      background: white !important;
   }
 
   /* start slide menu */
@@ -1148,7 +1148,7 @@ a:active a:visited {
   }
   .wrap .burger .burger_inside {
     position: absolute;
-    background-color: orange;
+    background-color: #000033;
     width: 30px;
     height: 5px;
     left: 2.5px;
@@ -1192,7 +1192,7 @@ a:active a:visited {
   }
   .wrap .content .top-bar {
     height: 40px;
-    background: #ddd;
+    background: #fff !important;
   }
   .wrap .content .content-inner {
     padding: 0;
@@ -1215,7 +1215,7 @@ a:active a:visited {
     color: #9D9D9D;
     font-size: 14px;
     font-weight: 700;
-    border-bottom: 1px solid #303030;
+    border-bottom: 1px solid #ffffff;
     position: relative;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -1229,7 +1229,7 @@ a:active a:visited {
     top: 16px;
     left: 12px;
     font-size: 18px;
-    color: orange;
+    color: #2388f9;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
@@ -1240,10 +1240,10 @@ a:active a:visited {
     font-size: 16px;
   }
   .wrap ul.accordion li.open .link {
-    color: #FFB266;
+    color: #2388f9;
   }
   .wrap ul.accordion li.open i {
-    color: #FFB266;
+    color: #2388f9;
   }
   .wrap ul.accordion li.open i.fa-chevron-down {
     -webkit-transform: rotate(180deg);
@@ -1258,7 +1258,7 @@ a:active a:visited {
     padding: 0;
   }
   .wrap ul.accordion ul.submenu li {
-    border-bottom: 1px solid #4b4a5e;
+    border-bottom: 0px solid #4b4a5e;
     list-style: none;
   }
   .wrap ul.accordion ul.submenu li a {
@@ -1444,7 +1444,7 @@ a:active a:visited {
     }
 
     .tile-icon-container {
-        background-color:orange !important; 
+        background-color:#2388f9 !important; 
         height:300px;
     }
 
@@ -1684,7 +1684,7 @@ PRICING STYLES
     }
 
 .panel-primary>.panel-heading {
-  background: #46A6F7 !important;
+  background: #000033 !important;
 }
 
 .btn db-button-color-square btn-lg {
@@ -1692,3 +1692,85 @@ PRICING STYLES
 }
 
 /* stop subscriptions */
+
+/*Start bootstrap overrides*/
+
+.btn-primary {
+    background-image: linear-gradient(rgb(255, 255, 255) 0px, rgb(247, 247, 247) 100%) !important;
+    background-repeat: repeat-x;
+    border-color: rgb(234, 232, 232) !important;
+
+    color: #2388f9 !important;
+    border-radius: 5px !important;
+    font-size: 18px !important;
+    padding: 10px !important;
+    text-shadow: #fff 0 1px 0 !important;
+}
+
+.btn-primary:hover {
+    background-color: whitesmoke;
+    border-color: #204d74;
+}
+
+.btn-info {
+    background-image: linear-gradient(rgb(255, 255, 255) 0px, rgb(247, 247, 247) 100%) !important;
+    background-repeat: repeat-x;
+    border-color: rgb(234, 232, 232) !important;
+
+    color: #2388f9 !important;
+    border-radius: 5px !important;
+    font-size: 18px !important;
+    padding: 10px !important;
+    text-shadow: #fff 0 1px 0 !important;
+}
+
+.btn-default {
+    background-image: linear-gradient(rgb(255, 255, 255) 0px, rgb(247, 247, 247) 100%) !important;
+    background-repeat: repeat-x;
+    border-color: rgb(234, 232, 232) !important;
+
+    color: #2388f9 !important;
+    border-radius: 5px !important;
+    text-shadow: #fff 0 1px 0 !important;
+}
+
+.btn-default.btn-xs {
+    background-image: linear-gradient(rgb(255, 255, 255) 0px, rgb(247, 247, 247) 100%) !important;
+    background-repeat: repeat-x;
+    border-color: rgb(234, 232, 232) !important;
+
+    color: #2388f9 !important;
+    border-radius: 5px !important;
+    text-shadow: #fff 0 1px 0 !important;
+}
+
+.btn-warning {
+    background-color: #ffd700 !important;
+    border-color: #ffd700 !important;
+    background-image: -webkit-linear-gradient(top,#ffd700 0, #f0ad4e 100%);
+    background-image: -o-linear-gradient(top,#ffd700 0,#f0ad4e 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#ffd700),to(#f0ad4e));
+    background-image: linear-gradient(to bottom,#ffd700 0,#f0ad4e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd700', endColorstr='#f0ad4e', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+}
+.jumbotron {
+  background-color:inherit;
+}
+
+.container-full-bg {
+  width:100%;
+  height:100%;
+  max-width:100%;
+  background-position:center;
+  background-size:cover;
+}
+.container-full-bg .container, .container-full-bg .container .jumbotron {
+  height:100%;
+  width:100%;
+}
+
+
+
+/*Stop bootstrap overrides*/
