@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
          has_many :appointments
          has_many :subscriptions
          has_many :plans
+         has_many :promos
 
          validates :first_name, :last_name, :zip_code, presence: true
 

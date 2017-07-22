@@ -4,10 +4,13 @@ class UsersController < ApplicationController
   	@subscriptions = Subscription.all
   	@subscription = current_user.subscriptions
   	@plans = Plan.all
+    @promos = Promo.all
   end
 
   def create
-      @user = User.new(user_params) 
+      @user = User.new(user_params)
+      promo_code = params[:promo_code]
+      @promos = Promo.where("promo_code = ?", promo_code) 
       respond_to do |format|   
       if @user.save
           #UserMailer.registration_confirmation(@user).deliver_now

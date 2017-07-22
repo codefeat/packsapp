@@ -3,6 +3,7 @@ class DeliveriesController < ApplicationController
   #before_action :set_order
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
+  before_action :check_delivery, only: [:new, :create]
  
   
   # GET /deliveries
@@ -60,12 +61,14 @@ class DeliveriesController < ApplicationController
   def new
     @delivery = Delivery.new
     @deliveries = Delivery.all
+    #@thisDelivery = Delivery.find(:id)
     @user = current_user
     @orders = Order.all
     @order = @user.orders.all if @user
     @slot = Slot.all
     @appointment = Appointment.all
     @day = Day.all
+
 
   end
 
@@ -96,10 +99,10 @@ class DeliveriesController < ApplicationController
       @delivery.user_packnum = current_user.packs_num
       #@slotid = @slot.id
       if @delivery.save
-
+         #note add this to url for sched orders/#{@oid}/deliveries"
         #Appointment.create!(:delivery_id => @delivery.id, :slot_id => @delivery[:appt_id])
         Appointment.create!(:slot_id => @delivery[:appt_id])
-        format.html { redirect_to url_for(:controller => :schedules, :action => :new), notice: 'delivery was successfully created.' }
+        format.html { redirect_to url_for(:controller => :schedules, :id => params[:order_id], :action => :new), notice: 'delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
         format.html { render :new }
@@ -136,6 +139,13 @@ class DeliveriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_delivery
       @delivery = Delivery.find(params[:id])
+    end
+
+    def check_delivery
+      if Delivery.exist?(order_id: params[:oid])
+        redirect_to root_url, alert: "Sorry, that delivery has already been scheduled."
+      end
+
     end
 
 
