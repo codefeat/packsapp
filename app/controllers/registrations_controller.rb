@@ -1,11 +1,25 @@
 class RegistrationsController < Devise::RegistrationsController
+  #after_action :check_promo
   # def create
   #   super
   #   if @user
   #     UserMailer.new_registration(@user).deliver_now
   #   end
   # end
+def check_promo
+  if Promo.exists?(:code => params[:promo_code] )
+    @promos = Promo.all
 
+    @promo = @promos.id
+
+    raise 'foo'
+  end
+end  
+
+
+def coupon
+  @coupon = params[:promo_code]
+end
 def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 

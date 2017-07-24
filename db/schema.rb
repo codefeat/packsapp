@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622103335) do
+ActiveRecord::Schema.define(version: 20170722132030) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -122,6 +122,13 @@ ActiveRecord::Schema.define(version: 20170622103335) do
     t.decimal  "total_price"
   end
 
+  create_table "promos", force: :cascade do |t|
+    t.string   "code"
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "purchases", force: :cascade do |t|
     t.string   "email"
     t.integer  "amount"
@@ -205,6 +212,7 @@ ActiveRecord::Schema.define(version: 20170622103335) do
     t.string   "unconfirmed_email"
     t.string   "zip_code"
     t.string   "zipcode"
+    t.string   "promo_code"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
