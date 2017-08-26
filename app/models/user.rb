@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   #before_create :confirmation_token
 #attr_accessor :first_name, :email
+after_create :send_admin_mail
+  def send_admin_mail
+    AdminMailer.new_user(self).deliver
+end
 
   mount_uploader :image, ImageUploader	
   # Include default devise modules. Others available are:

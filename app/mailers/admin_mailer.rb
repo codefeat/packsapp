@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-	default :from => "delivery@gonextpakk.com"
+	default :from => "delivery@nextpakk.com"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -7,7 +7,7 @@ class AdminMailer < ApplicationMailer
   #
   def new_user(user)
     @user = User.last
-    @thisAdmin = "delivery@gonextpakk.com"
+    @thisAdmin = "delivery@nextpakk.com"
 
     mail(:to => "#{@thisAdmin}", subject: "New NextPakk User.")
   end
