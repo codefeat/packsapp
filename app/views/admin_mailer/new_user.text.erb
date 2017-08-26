@@ -1,14 +1,14 @@
 New NextPakk User 
 
 
-<% @newUser = Order.last %>
+<% @new = User.last %>
 
 User Details
 
-ID: <%= @newUser.id%>
-EMAIL: <%= @newUser.email %>
-NAME: <%= @newUser.first_name%> <%= @newUser.last_name%>
-NEXTPAKK#: <%= @newUser.packs_sum %>
+ID: <%= @new.id%>
+EMAIL: <%= @new.email %>
+NAME: <%= @new.first_name%> <%= @new.last_name%>
+NEXTPAKK#: <%= @new.packs_num %>
 
 
-<%= link_to "gonextpakk", "http://www.nextpack.delivery" %>
+<%= link_to "NextPakk", "http://www.nextpackk.com" %>
