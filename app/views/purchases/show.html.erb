@@ -4,6 +4,13 @@
                   <div class="box">             
                     <div class="icon">
                       <div class="image"><i class="glyphicon glyphicon-shopping-cart glyph-lrg-cntr" style=""></i></div>
+
+<div class="col-1g-12">
+                    <div class="col-1g-9 tile-icon-sm how-nav-text-container pull-right">
+                      <a href="/" class="cust-block-icons how-nav-text" style="color: white !important; padding: 10px !important;">   close <i class="glyphicon glyphicon-remove"></i></a>
+                    </div>
+                    </div><br /><br />
+
                       <div class="info-form">
                       <br /> <br />
                       <h3 style="color: white !important;">NextPakk</h3>
@@ -15,7 +22,9 @@
                         <div class="space"></div>
                       </div> 
                     </div>
+                    
   </div>
+
   </div>
   <div id="wrapper">
        <div id="page-wrapper">
@@ -34,9 +43,10 @@
                           	
                           	<tr>
                           		<td>
-                              <%= @plan.plan_name %> Delivery<br />
-                              <%= @plan.plan_info %><br />
-                              <%= @plan.plan_descrip %>
+                              <%= @planType.plan_name %><br />
+                              <%= @purchase.description %> Delivery<br />
+                              <%= @planType.plan_info %>
+
                               </td>
                               <td></td>
                               <td></td>
@@ -45,7 +55,7 @@
                             <tr>
                               <td></td>
                               <td ><%= @purchase.order_qty %></td>
-                              <td >$<%= @purchase.amount / 100 %>.00</td>
+                              <td >$<%= @purchase.amount.to_f / 100 %></td>
                             </tr>
                             <tr>
                             <td>
@@ -70,7 +80,7 @@
       <div class="container how-nav-container">
         
         <div class="col-1g-9 tile-icon-sm how-nav-text-container pull-right">
-          <a href="/" class="cust-block-icons how-nav-text" style="">   close <i class="glyphicon glyphicon-remove"></i></a>
+          <a href="/" class="cust-block-icons how-nav-text" style="color: white !important;">   close <i class="glyphicon glyphicon-remove"></i></a>
         </div>  
       </div>
 </div>

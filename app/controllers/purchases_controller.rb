@@ -11,5 +11,6 @@ class PurchasesController < ApplicationController
 		@schedule = Schedule.find_by_delivery_id(@delivery)
   		#@delivery = Delivery.find(params[:oid])
     	#@order = Order.find(@delivery.order_id)
+    	@planType = Plan.find(@purchase.subscription_id)
 	end
 end

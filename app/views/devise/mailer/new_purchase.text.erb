@@ -5,7 +5,7 @@ Thank You for Your Order
 Order Summary
 
 
-AMOUNT: <%= @newOrder.amount%>
+AMOUNT: <%= @newOrder.amount.to_f / 100 %>
 DESCRIPTION: <%= @newOrder.description%>
 QTY: <%= @newOrder.order_qty %><
 

@@ -2,11 +2,11 @@
 
 <% @newOrder = Purchase.last %>
 
-<h2>Order Summary</h2>
+<h2>Your NextPakk Order Summary</h2>
 
 <blockquote>
-AMOUNT: <%= @newOrder.amount%><br />
-DESCRIPTION: <%= @newOrder.description%><br />
+AMOUNT: <%= @newOrder.amount.to_f / 100 %><br />
+DESCRIPTION: <%= @newOrder.description %><br />
 QTY: <%= @newOrder.order_qty %><br />
 </blockquote>
 

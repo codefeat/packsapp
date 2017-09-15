@@ -21,6 +21,7 @@
                   <table class="table table-hover table-condensed" style="width: 97% !important;">
                     
                       <tr>
+                        <th>ID</th>
                         <th>Day</th>
                         <th>Date</th>
                         <th>Window</th>
@@ -32,6 +33,7 @@
                     <% i = 0 %>
                       <% @schedules.each do |schedule| %>
                         <tr>
+                        <td><%= schedule.delivery_id %></td>
                         <td><%= schedule.day.strftime("%A") %> </td>
                           <td> <%= schedule.day %></td>
                           <td><%= schedule.slot.window %></td>
