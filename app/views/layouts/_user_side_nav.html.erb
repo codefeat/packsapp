@@ -4,7 +4,8 @@
         <li><%= link_to "Home", root_path , class: "link" %><i class="fa fa-lg fa-truck"></i></li> 
         <li><%= link_to "Pickup", paqs_pickup_path, class: "link" %><i class="fa fa-lg fa-thumbs-up"></i></li> 
         <li><%= link_to "Address", paqs_address_path, class: "link" %><i class="fa fa-lg fa-map-marker"></i></li>
-        <li><%= link_to "Profile", current_user, class: "link" %><i class="fa fa-fw fa-user"></i></li> <li   style="display:none"><%= link_to "Subcription", subscriptions_path, class: "link" %><i class="fa fa-lg fa-check"></i></li>
+        <li><%= link_to "Profile", current_user, class: "link" %><i class="fa fa-fw fa-user"></i></li> 
+        <li   style="display:block;"><%= link_to "Subcription", subscriptions_path, class: "link" %><i class="fa fa-lg fa-check"></i></li>
         <li><%= link_to "How It Works", paqs_how1_path, class: "link" %><i class="fa fa-lg fa-gear"></i></li>
   </aside>
   <% end %>

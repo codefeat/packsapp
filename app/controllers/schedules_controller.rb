@@ -5,6 +5,7 @@ def index
 
   @user = current_user
   @schedules = Schedule.all.reverse if @user
+  @deliveries = Delivery.all.reverse if @user
   #@schedules = @schedules.day.order("by DESC").limit(10)
   #@schedule = @user.schedules if @user
 end
@@ -14,6 +15,8 @@ def new
 	@schedule = Schedule.new
 	@delivery = @user.deliveries.all if @user
 	@deliveries = Delivery.all
+  @orders = Order.all
+  @order = @user.orders.all if @user
   @subscriptions = Subscription.where(user_id: @user)
   #@subscription = @user.subscriptions
 

@@ -28,21 +28,31 @@
     
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :user_packnum, value: current_user.packs_num %>
+    <% if @delivery.new_record? %>
     <% if !Delivery.exists?(order_id: @myOrder) && Order.exists?(user_id: current_user.id) %>
         <% for order in @order %>
           <% @myOrder = order.id %>
            <% @orderQty = order.order_qty %>
-         
           <% @myOrderprod = order.product_id %> 
-         
         <% end %>
-        
+      <%= f.hidden_field :order_id, value: params[:oid] %>
              
       <% end %>
-       
-      <%= f.hidden_field :order_id, value: params[:oid] %>
+
       <%= f.hidden_field :product_id, value: @myOrderprod %>
       <%= f.hidden_field :order_qty, value: @orderQty %>
+      <% end %>
+
+      <% if !@delivery.new_record? %>
+    <% if Delivery.exists?(order_id: params[:oid]) %>
+        <% for delivery in @deliveries %>
+          <% @myDelivery = delivery.id %>
+           <% @myOrderQty = delivery.order_qty %>
+          <% @myOrderNum = delivery.order_id %> 
+        <% end %>
+      <%= f.hidden_field :order_id, value: params[:oid] %>
+      <% end %>       
+      <% end %>
   </div>
  
   <div class="actions">

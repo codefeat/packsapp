@@ -8,7 +8,7 @@
   <%= render 'layouts/user_side_nav' %>
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
+    <div class="top-bar" style="background: white !important;">       
       <a href="#menu" class="side-menu-link burger"> 
         <span class='burger_inside' id='bgrOne'></span>
         <span class='burger_inside' id='bgrTwo'></span>
@@ -36,6 +36,7 @@
                                             <dd ><%= subscription.plan.plan_info %></dd>
                                             <dd ><%= subscription.plan.plan_info1 %></dd><br />
                                             <dd ><h3><%= subscription.plan.plan_descrip %></h3></dd>
+                                             <dd ><h3>$<%= subscription.plan.plan_price.to_f %></h3></dd>
                                 </dl>
                             </div>
                         </div>
@@ -68,6 +69,7 @@
                                           <ul>
                                               <li><i class="fa fa-lg fa-truck"></i><%= plan.plan_info %> </li>
                                               <li><i class="glyphicon glyphicon-time"></i><%= plan.plan_info1 %></li>
+                                              <li><i class="glyphicon glyphicon-time"></i>$<%= plan.plan_price %></li>
                                           </ul>
                                           <div class="pricing-footer">
                                           <%= link_to "UPDATE PLAN", edit_subscription_path(subscription), class: "btn btn-default btn-lg" %>

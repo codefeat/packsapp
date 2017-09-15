@@ -142,7 +142,7 @@ class DeliveriesController < ApplicationController
     end
 
     def check_delivery
-      if Delivery.exist?(order_id: params[:oid])
+      if Delivery.exists?(order_id: params[:oid])
         redirect_to root_url, alert: "Sorry, that delivery has already been scheduled."
       end
 

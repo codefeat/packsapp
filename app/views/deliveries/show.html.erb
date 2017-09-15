@@ -10,7 +10,7 @@
   
   <!--Body content-->
   <div class="content">
-    <div class="top-bar" style="background: whitesmoke !important;">       
+    <div class="top-bar" style="background: white !important;">       
       <a href="#menu" class="side-menu-link burger"> 
         <span class='burger_inside' id='bgrOne'></span>
         <span class='burger_inside' id='bgrTwo'></span>
@@ -34,8 +34,8 @@
 
 
 
-									<div class="star-rating" data-score= <%= @avg_rating %> ></div>
-											<p><%= "#{@reviews.length} reviews" %></p>
+									<div class="star-rating" data-score= <%= @avg_rating %> style="display: none;"></div>
+											<p style="display: none;"><%= "#{@reviews.length} reviews" %></p>
 									<dl>
                                     <dt>Delivery address</dt>
                                     <dd><%= @delivery.address %></dd><br />
@@ -44,7 +44,7 @@
                                     <dd>
                                      <% #link_to @delivery.address, "http://maps.google.com/?q=#{@delivery.address}" %>
                                      <% if User.exists?(driver: true) %>
-                                    <%= link_to "Deliver", "http://maps.google.com/?q=#{@delivery.address}", class: "btn btn-default" %>
+                                    <% link_to "Deliver", "http://maps.google.com/?q=#{@delivery.address}", class: "btn btn-default" %>
                                     <% else %>
                                     <dd style="color: green;">Delivery Pending</dd>
                                     <% end %>
@@ -55,12 +55,12 @@
                                     <dd><%= @delivery.phone %></dd><br />
                                     <% @myOrd = @orders.find(@delivery.order_id) %>
 
-                                    <%= @ordStatCheck = @myOrd.order_status_id %>
-                                    <dt>Review</dt><br/>
+                                    <% @ordStatCheck = @myOrd.order_status_id %>
+                                    <dt style="display: none;">Review</dt><br/>
                                     <% if Order.exists?(@ordStatCheck == 3) %>
                                     	<dd><%= link_to "Write a Review", new_delivery_review_path(@delivery), class: "btn btn-default" %></dd>
                                     <% else %>
-                                    	<h4>"After delivery is complete please leave a review."</h4>
+                                    	<h4 style="display: none;">"After delivery is complete please leave a review."</h4>
                                     <% end %>
                                 </dl>
                                 	
