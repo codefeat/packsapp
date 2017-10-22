@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'paqs/how6'
 
+  get 'paqs/how7'
+
   get 'paqs/step1'
 
   get 'paqs/step2'
