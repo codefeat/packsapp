@@ -16,7 +16,7 @@ class MyMailer < Devise::Mailer
 	    #@from = "delivery@gonextpakk.com"
 		#@user = current_user
 		@purchase = purchase
-		mail(:to => "#{@user_fname} <#{@user_email}>", from: "delivery@gonextpakk.com", subject: "Thank you for using NextPakk.")
+		mail(:to => "#{@user_fname} <#{@user_email}>", from: "delivery@nextpakk.com", subject: "Thank you for using NextPakk.")
 	end
 
 	def new_purchase(purchase)
