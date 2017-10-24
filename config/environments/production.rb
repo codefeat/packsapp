@@ -89,7 +89,7 @@ Rails.application.configure do
     :enable_startstls_auto => true
   }
 
-    config.action_mailer.default_url_options = { :host => 'nextpack.herokuapp.com' }
+    config.action_mailer.default_url_options = { :host => 'http://nextpack.herokuapp.com' }
 
 
   # Required for Devise. Rember to change localhost:300 to actual application host.
