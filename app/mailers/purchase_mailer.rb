@@ -10,7 +10,7 @@ class PurchaseMailer < ApplicationMailer
   	#@user = current_user
     @purchase = Purchase.last
     @plan = @purchase.product_id
-    @thisAdmin = "delivery@gonextpakk.com"
+    @thisAdmin = "delivery@nextpakk.com"
 
 
     mail(:to => "#{@thisAdmin}", subject: "New NextPakk Purchase.")
