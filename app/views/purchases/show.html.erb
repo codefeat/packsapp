@@ -55,7 +55,7 @@
                             <tr>
                               <td></td>
                               <td style="text-align: left !important;" ><%= @purchase.order_qty %></td>
-                              <td style="text-align: left !important;" >$<%= @purchase.amount.to_f / 100 %></td>
+                              <td style="text-align: left !important;" >$<%= @purchase.amount.to_f.floor / 100 %></td>
                             </tr>
                             <tr>
                             <td style="text-align: left !important;">
