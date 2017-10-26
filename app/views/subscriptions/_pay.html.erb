@@ -18,10 +18,11 @@
                       </label>
                     </article-->
                     <% thisOrdrNum = @delivery.order_id %>
-                    <% thisQty = @order.order_qty * 2 %>
+                    <% thisQty = @order.order_qty %>
+                    <% perPkg = 2 %>
                     <% thisSubscription = @subscription.plan_id %>
                     <% if thisSubscription  == 1 %>
-                      <% myFee = @subscription.plan.price_in_cents + thisQty * 100 %>
+                      <% myFee = @subscription.plan.price_in_cents + thisQty * perPkg * 100 %>
                       <% else %>
                       <% myFee = @subscription.plan.price_in_cents  %>
                       <% planType = 'Subscription' %>
@@ -51,7 +52,7 @@
 
                     <script type="text/javascript">
                       var handler = StripeCheckout.configure({
-                        key: 'pk_live_3uSmVhCpCZCnXMaZPJ7m9tSc',
+                        key: 'pk_test_87LayhWLhTKpfeY88G6tdHAb',
                         token: function(token, arg) {
                           document.getElementById("stripeToken").value = token.id;
                           document.getElementById("stripeEmail").value = token.email;
