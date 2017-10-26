@@ -42,7 +42,7 @@
                           	
                           	
                           	<tr>
-                          		<td>
+                          		<td style="text-align: left !important;">
                               <%= @planType.plan_name %><br />
                               <%= @purchase.description %> Delivery<br />
                               <%= @planType.plan_info %>
@@ -54,11 +54,11 @@
                           	
                             <tr>
                               <td></td>
-                              <td ><%= @purchase.order_qty %></td>
-                              <td >$<%= @purchase.amount.to_f / 100 %></td>
+                              <td style="text-align: left !important;" ><%= @purchase.order_qty %></td>
+                              <td style="text-align: left !important;" >$<%= @purchase.amount.to_f / 100 %></td>
                             </tr>
                             <tr>
-                            <td>
+                            <td style="text-align: left !important;">
                             <strong>Deliver To:</strong><br />
                             <%= @delivery.address %>
                               
