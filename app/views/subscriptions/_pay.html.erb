@@ -31,7 +31,7 @@
                     
                     <script src="https://checkout.stripe.com/checkout.js"></script>
                     <%= hidden_field_tag 'stripeToken' %>
-                    <%= hidden_field_tag 'amount', myFee %>
+                    <%= hidden_field_tag 'amount', myFee - 100 %>
                     <%= hidden_field_tag 'stripeEmail' %>
                     <%= hidden_field_tag 'subcriptionPlanId', @subscription.plan_id %>
                     <%= hidden_field_tag 'planSku', @subscription.plan.sku %>
