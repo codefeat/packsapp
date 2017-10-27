@@ -20,6 +20,7 @@
                     <% thisOrdrNum = @delivery.order_id %>
                     <% thisQty = @order.order_qty %>
                     <% perPkg = 2 %>
+                    <% subOne = 1 %>
                     <% thisSubscription = @subscription.plan_id %>
                     <% if thisSubscription  == 1 %>
                       <% myFee = @subscription.plan.price_in_cents + thisQty * perPkg * 100 %>
@@ -62,7 +63,7 @@
                       document.getElementById('btn-buy').addEventListener('click', function(e)  {
                         handler.open({
                           name: 'NextPakk Delivery',
-                          description : '<%= @subscription.plan.plan_name %> <%= planType %> ($<%= @subscription.plan.plan_price.floor %>) + $2/Pkg',
+                          description : '<%= @subscription.plan.plan_name %> <%= planType %> ($<%= @subscription.plan.plan_price.floor - subOne %>)  + $2/Pkg',
                           amount: document.getElementById('amount').value 
                         });
                         e.preventDefault();
