@@ -3,14 +3,20 @@
 <blockquote>
 <% @newOrder = Order.last %>
 
-<h2>Pre-Delivery Details</h2>
+<h2>Schedule Your NextPakk Delivery</h2>
 
-ORDER#: <%= @newOrder.id%>01<br />
-Qty: <%= @newOrder.order_qty %><br />
-DESCRIPTION: <%= @newOrder.order_description%><br />
-SIZE: <%= @newOrder.order_size %><br />
+<h3>Delivery Details:</h3>
 
-<h4><a href="http://www.nextpack.delivery">gonextpakk.com</a></h4>
+<strong>Order#:</strong> <%= @newOrder.id%>01<br />
+<strong>Order Status:</strong> Ready for Scheduling<br />
+<strong>Qty:</strong> <%= @newOrder.order_qty %><br />
+<strong>Order Description:</strong> <%= @newOrder.order_description%><br />
+<strong>Order Size:</strong> <%= @newOrder.order_size %><br />
+
+<strong>Instructions:</strong><br />
+Login into your account and click on the schedule delivery button and provide the requested information.<br />
+
+<h2><a href="http://nextpack.herokuapp.com/">Click here to login in and schedule your delivery</a></h2>
 </blockquote>
 
 <div >
