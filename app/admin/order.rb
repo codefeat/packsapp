@@ -1,5 +1,7 @@
 ActiveAdmin.register Order do
-
+after_create do |order|
+	PurchaseMailer.new_order(@order).deliver_now
+end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
