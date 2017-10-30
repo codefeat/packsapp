@@ -78,6 +78,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
@@ -86,7 +88,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name    => ENV['SENDGRID_USERNAME'],
     :password   => ENV['SENDGRID_PASSWORD'],
-    :domain     => 'heroku.com',
+    :domain     => ENV['SENDGRID_DOMAIN'],
     :enable_startstls_auto => true
   }
 
