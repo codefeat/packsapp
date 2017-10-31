@@ -93,7 +93,7 @@ Rails.application.configure do
     
   }
 
-    config.action_mailer.default_url_options = { :host => 'nextpack.herokuapp.com' }
+    config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net' }
 
 
   # Required for Devise. Rember to change localhost:300 to actual application host.
